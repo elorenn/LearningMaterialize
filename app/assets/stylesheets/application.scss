@@ -23,7 +23,10 @@ p {
 }
 
 .button-collapse {
-  color: #26a69a;
+  color: #fff;
+  // left: 7.5%;
+  // margin-left: 1.5rem;
+  
 }
 
 .parallax-container {
@@ -61,4 +64,17 @@ p {
 
 footer.page-footer {
   margin: 0;
+  background-color: #4c1a2b;
 }
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
