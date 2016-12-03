@@ -17,7 +17,9 @@
 //= require materialize-sprockets
 //= require materialize/extras/nouislider
 
-// $(document).ready(function(){
-//     $('.parallax').parallax();
-// });
+$(document).ready(function(){
+    // $('.parallax').parallax();
+    $(".button-collapse").sideNav();
+
+});
 
