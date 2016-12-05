@@ -85,8 +85,15 @@ function onError(err){
 function createMap(position){
   var mapOptions = {
     center: position,
-    zoom: 12
+    zoom: 12,
+    scrollwheel: false, 
+    // so that the map doesn't zoom while you're scrolling down the page
+    gestureHandling: 'cooperative' 
+    // sets the gesture handling mode to 'cooperative',
+    // which means that on a mobile device, the user must swipe with one
+    // finger to scroll the page and two fingers to pan the map.
   };
+
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
   createMarker(position);
   createMarker({lat: 25.8068102, lng: -80.201181}); 
