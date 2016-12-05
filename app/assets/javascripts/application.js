@@ -43,7 +43,7 @@ $(document).ready(function(){
 function intoHuman (event) {
 	event.preventDefault();
 	console.log("User is a human");
-	// should this toggle content between human and vampire?
+	
 	$(".hello-vampire").toggle();
 	$(".hello-human").toggle();
 
@@ -55,7 +55,7 @@ function intoHuman (event) {
 function intoVampire (event) {
 	event.preventDefault();
 	console.log("User is a vampire");
-	// should this toggle content between human and vampire?
+	
 	$(".hello-vampire").toggle();
 	$(".hello-human").toggle();
 
@@ -86,6 +86,8 @@ function createMap(position){
   var mapOptions = {
     center: position,
     zoom: 12,
+    mapTypeId: 'hybrid',
+    // displays a mixture of normal and satellite views
     scrollwheel: false, 
     // so that the map doesn't zoom while you're scrolling down the page
     gestureHandling: 'cooperative' 
