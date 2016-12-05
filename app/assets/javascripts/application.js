@@ -18,8 +18,9 @@
 //= require materialize/extras/nouislider
 
 $(document).ready(function(){
-    // $('.parallax').parallax();
+ 	$('.parallax').parallax();
     $(".button-collapse").sideNav();
+    $('.slider').slider({full_width: true});
 
 });
 

@@ -13,6 +13,8 @@ $secondary-color: color("yellow", "base") !default;
  * Made By MaterializeCSS.com
  */
 
+
+
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -33,6 +35,7 @@ p {
   min-height: 380px;
   line-height: 0;
   height: auto;
+  // height: 100%;
   color: rgba(255,255,255,.9);
 }
   .parallax-container .section {
@@ -44,7 +47,8 @@ p {
     position: absolute;
     top: 40%;
   }
-  #index-banner .section {
+
+#index-banner .section {
     top: 10%;
   }
 }
@@ -64,7 +68,7 @@ p {
 
 footer.page-footer {
   margin: 0;
-  background-color: #4c1a2b;
+  background-color: rgba(0,0,0,1);
 }
 
 
@@ -76,5 +80,13 @@ body {
 
 main {
   flex: 1 0 auto;
+  // background-color: #FFEECE;
 }
 
+nav {
+  background-color: rgba(0,0,0,.75);
+}
+
+.parallax{
+  position:static;
+}
