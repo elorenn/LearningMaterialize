@@ -37,6 +37,11 @@ $(document).ready(function(){
 	$("#vampire").on("click", intoVampire);
 
   $(window).on("scroll", changeNavbar);
+
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $('.modal').modal();
+
+  $('.collapsible').collapsible();
 });
 
 
@@ -98,8 +103,20 @@ function createMap(position){
 
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
   createMarker(position);
-  createMarker({lat: 25.8068102, lng: -80.201181}); 
+  createMarker({lat: 25.8068102, lng: -80.201181});
+
+  google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
+  // google.maps.event.addListener(map, 'tilesloaded', function(evt) {
+  //   console.log('map loaded!');
+  // }); 
 }
+
+
+function showHello (event) {
+  console.log('map finished loading!');
+  Materialize.fadeInImage('#hello-fade');
+}
+
 
 function createMarker(position) {
   var marker = new google.maps.Marker({
@@ -107,6 +124,7 @@ function createMarker(position) {
    map: map
  });
 }
+
 
 function createMarker(position) {
   var marker = new google.maps.Marker({

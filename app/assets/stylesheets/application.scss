@@ -163,12 +163,10 @@ nav {
   z-index: 0;
 }
 
-#blah {
-  position: absolute;
-  height: 500px;
-  width: 100%; 
-  z-index: 0;
+#hello-fade {
+  opacity: 0;
 }
+
 
 // =================== Loading Spinner ============================
 
@@ -294,3 +292,6 @@ nav {
     transform: rotate(360deg);
   }
 }
+
+// ========================
+
