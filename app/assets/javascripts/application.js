@@ -36,7 +36,7 @@ $(document).ready(function(){
   $("#human").on("click", intoHuman);
 	$("#vampire").on("click", intoVampire);
 
-
+  $(window).on("scroll", changeNavbar);
 });
 
 
@@ -106,14 +106,11 @@ function createMarker(position) {
  });
 }
 
-$(function() {
-    $(window).on("scroll", function() {
-        if($(window).scrollTop() > 60) {
+
+function changeNavbar(){
+  if($(window).scrollTop() > 60) {
             $("nav").addClass("active");
         } else {
-            //remove the background property so it comes transparent again (defined in your css)
            $("nav").removeClass("active");
         }
-    });
-});
-
+}
