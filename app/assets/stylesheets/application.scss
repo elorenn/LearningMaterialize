@@ -84,8 +84,13 @@ main {
 }
 
 nav {
+  background-color: #000;
+}
+
+.active { 
   background-color: rgba(0,0,0,.75);
 }
+
 
 .parallax{
   position:static;
@@ -134,18 +139,28 @@ nav {
 
 #vampire:checked .human-form {
     display: none;
-    z-index: 0;
 }
 
 .hello-card {
   z-index: 1;
 }
 
+.card {
+  z-index: 2;
+}
+
 
 // ===============================================
 
+#thing {
+   height: 500px;
+}
+
+
 #map-canvas {
-  height: 75vh;
+  height: 500px;
   width: 100%;
+  position: absolute; 
+  z-index: 0;
 }
 
