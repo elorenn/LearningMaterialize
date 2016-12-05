@@ -20,6 +20,7 @@
 console.log("APP ONLINE");
 
 var map;
+var infowindow;
 
 $(document).ready(function(){
 
@@ -81,6 +82,7 @@ function onLocation(position){
   };
 
   createMap(myPosition);
+  
 }
 
 function onError(err){
@@ -90,7 +92,7 @@ function onError(err){
 function createMap(position){
   var mapOptions = {
     center: position,
-    zoom: 12,
+    zoom: 16,
     mapTypeId: 'hybrid',
     // displays a mixture of normal and satellite views
     scrollwheel: false, 
@@ -105,24 +107,35 @@ function createMap(position){
   createMarker(position);
   createMarker({lat: 25.8068102, lng: -80.201181});
 
+
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
-  // google.maps.event.addListener(map, 'tilesloaded', function(evt) {
-  //   console.log('map loaded!');
-  // }); 
+ 
+
+  infowindow = new google.maps.InfoWindow();
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: {lat: position.lat, lng: position.lng},
+          radius: 500,
+          type: ['blood bank']
+        }, callback);
+
+}
+
+
+
+function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+          // console.log(results[i]);
+            createMarker(results[i].geometry.location);
+      }
+    }
 }
 
 
 function showHello (event) {
   console.log('map finished loading!');
   Materialize.fadeInImage('#hello-fade');
-}
-
-
-function createMarker(position) {
-  var marker = new google.maps.Marker({
-   position: position,
-   map: map
- });
 }
 
 
@@ -141,3 +154,6 @@ function changeNavbar(){
            $("nav").removeClass("active");
         }
 }
+
+
+
