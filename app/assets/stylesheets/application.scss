@@ -90,3 +90,62 @@ nav {
 .parallax{
   position:static;
 }
+
+
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// ================= Hello =========================
+
+.hello-human {
+    display: none;
+    padding: 20px;
+}
+
+#human:checked .hello-human {
+    display: block;
+}
+
+
+.hello-vampire {
+    display: block;
+    padding: 20px;
+}
+
+#vampire:checked .hello-vampire {
+    display: none;
+}
+
+
+.vampire-form {
+  display: none;
+}
+
+#human:checked .vampire-form {
+    display: block;
+}
+
+
+.human-form {
+  display: block;
+}
+
+#vampire:checked .human-form {
+    display: none;
+    z-index: 0;
+}
+
+.hello-card {
+  z-index: 1;
+}
+
+
+// ===============================================
+
+#map-canvas {
+  height: 75vh;
+  width: 100%;
+}
+
