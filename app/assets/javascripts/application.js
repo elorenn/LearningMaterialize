@@ -50,6 +50,9 @@ function intoHuman (event) {
 	event.preventDefault();
 	console.log("User is a human");
 	
+  $("#bank-text-human").toggle();
+  $("#bank-text-vampire").toggle();
+
 	$(".hello-vampire").toggle();
 	$(".hello-human").toggle();
 
@@ -62,6 +65,9 @@ function intoVampire (event) {
 	event.preventDefault();
 	console.log("User is a vampire");
 	
+  $("#bank-text-human").toggle();
+  $("#bank-text-vampire").toggle();
+
 	$(".hello-vampire").toggle();
 	$(".hello-human").toggle();
 
@@ -175,6 +181,7 @@ function callback(results, status) {
 function showHello (event) {
   console.log('map finished loading!');
   Materialize.fadeInImage('#hello-fade');
+
 }
 
 

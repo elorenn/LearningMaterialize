@@ -105,11 +105,25 @@ nav {
 
 // ================= Hello =========================
 
+#bank-text-human {
+  display: none;
+}
+#human:checked #bank-text-human {
+    display: block;
+}
+
+#bank-text-vampire {
+  display: block;
+}
+#vampire:checked #bank-text-vampire {
+    display: none;
+}
+
+
 .hello-human {
     display: none;
     padding: 20px;
 }
-
 #human:checked .hello-human {
     display: block;
 }
@@ -119,7 +133,6 @@ nav {
     display: block;
     padding: 20px;
 }
-
 #vampire:checked .hello-vampire {
     display: none;
 }
@@ -128,7 +141,6 @@ nav {
 .vampire-form {
   display: none;
 }
-
 #human:checked .vampire-form {
     display: block;
 }
@@ -137,10 +149,10 @@ nav {
 .human-form {
   display: block;
 }
-
 #vampire:checked .human-form {
     display: none;
 }
+
 
 .hello-card {
   z-index: 1;
@@ -168,7 +180,9 @@ nav {
   opacity: 0;
 }
 
-
+#text-fade {
+  opacity: 0;
+}
 
 
 // =================== Loading Spinner ============================
