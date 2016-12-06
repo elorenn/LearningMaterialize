@@ -4,4 +4,8 @@ class MainController < ApplicationController
 		render :home
 	end
 
+	def map
+		render :map
+	end	
+
 end

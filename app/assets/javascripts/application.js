@@ -114,7 +114,10 @@ function createMap(position){
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
 
- 
+  marker.addListener('click', function() {
+          map.setZoom(8);
+          map.setCenter(marker.getPosition());
+        });
 
   infowindow = new google.maps.InfoWindow();
   var service = new google.maps.places.PlacesService(map);
@@ -160,7 +163,7 @@ function callback(results, status) {
                         <div class="card-image">
                           <a href="#">
                           <img src="assets/donate.png">
-                          </a>
+                          </a>                
                         </div>
                         <div class="card-stacked">
                           <div class="card-content">
