@@ -113,10 +113,10 @@ function createMap(position){
 
   infowindow = new google.maps.InfoWindow();
         var service = new google.maps.places.PlacesService(map);
-        service.nearbySearch({
+        service.textSearch({
           location: {lat: position.lat, lng: position.lng},
-          radius: 500,
-          type: ['blood bank']
+          radius: 1000,
+          query: ['blood' + 'bank']
         }, callback);
 
 }
@@ -126,8 +126,8 @@ function createMap(position){
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
-          // console.log(results[i]);
-            createMarker(results[i].geometry.location);
+          console.log(results[i]);
+          createMarker(results[i].geometry.location);
       }
     }
 }
