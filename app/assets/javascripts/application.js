@@ -111,6 +111,7 @@ function createMap(position){
 
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
+
  
 
   infowindow = new google.maps.InfoWindow();
@@ -138,19 +139,37 @@ function callback(results, status) {
           //firstPhoto = results[i].photos[0].html_attributions[0]
           //var website = 
           // var phone =     
-
-          $(".js-blood-name").text(name);
-          $(".js-blood-address").text(address);
-
           console.log(results[i]);
           console.log(name);
           console.log(address);
           // console.log(isOpen);
           //console.log(firstPhoto);
         
-          // nameArray.push(name);
-          // console.log(nameArray);
-        
+        // $(".js-blood-name").text(name);
+        // $(".js-blood-address").text(address);
+
+
+
+$(".js-card-row").append(
+
+        `<div class="col s12 m6 l4">
+          <div class="card horizontal">
+              <div class="card-image">
+                <img src="assets/donate.png">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <strong><p class="js-blood-name">${name}</p></strong>
+                  <div class="divider"></div>
+                  <p class="js-blood-address">${address}</p>
+                </div>
+               </div> <!-- stacked -->                  
+            </div> <!-- card -->
+        </div> <!-- col -->`
+);
+
+
+
       }
     }
 }
@@ -168,8 +187,6 @@ function createMarker(position) {
    map: map
  });
 
-  // markerArray.push(marker);
-  // console.log(markerArray);
 }
 
 
@@ -180,5 +197,7 @@ function changeNavbar(){
            $("nav").removeClass("active");
         }
 }
+
+
 
 
