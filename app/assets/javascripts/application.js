@@ -21,6 +21,8 @@ console.log("APP ONLINE");
 
 var map;
 var infowindow;
+// var nameArray = [];
+//var markerArray = [];
 
 $(document).ready(function(){
 
@@ -112,7 +114,8 @@ function createMap(position){
  
 
   infowindow = new google.maps.InfoWindow();
-        var service = new google.maps.places.PlacesService(map);
+  var service = new google.maps.places.PlacesService(map);
+
         service.textSearch({
           location: {lat: position.lat, lng: position.lng},
           radius: 1000,
@@ -126,16 +129,28 @@ function createMap(position){
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
+          
+          createMarker(results[i].geometry.location);  
+
+          name = results[i].name
+          address = results[i].formatted_address
+          // isOpen = results[i].opening_hours.open_now
+          //firstPhoto = results[i].photos[0].html_attributions[0]
+          //var website = 
+          // var phone =     
+
+          $(".js-blood-name").text(name);
+          $(".js-blood-address").text(address);
+
           console.log(results[i]);
-          createMarker(results[i].geometry.location);
-          console.log(results[i].formatted_address);
-          console.log(results[i].name);
-          console.log(results[i].opening_hours.open_now);
-          // console.log(results[i]);
-          // console.log(results[i]);
-          // console.log(results[i]);
-          // console.log(results[i]);
-          // console.log(results[i]);
+          console.log(name);
+          console.log(address);
+          // console.log(isOpen);
+          //console.log(firstPhoto);
+        
+          // nameArray.push(name);
+          // console.log(nameArray);
+        
       }
     }
 }
@@ -148,10 +163,13 @@ function showHello (event) {
 
 
 function createMarker(position) {
-  var marker = new google.maps.Marker({
+   marker = new google.maps.Marker({
    position: position,
    map: map
  });
+
+  // markerArray.push(marker);
+  // console.log(markerArray);
 }
 
 
@@ -162,8 +180,5 @@ function changeNavbar(){
            $("nav").removeClass("active");
         }
 }
-
-
-
 
 
