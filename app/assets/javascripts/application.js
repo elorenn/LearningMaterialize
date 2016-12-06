@@ -21,8 +21,6 @@ console.log("APP ONLINE");
 
 var map;
 var infowindow;
-// var nameArray = [];
-//var markerArray = [];
 
 $(document).ready(function(){
 
@@ -95,14 +93,12 @@ function createMap(position){
   var mapOptions = {
     center: position,
     zoom: 13,
-    mapTypeId: 'hybrid',
-    // displays a mixture of normal and satellite views
-    scrollwheel: false, 
-    // so that the map doesn't zoom while you're scrolling down the page
+    mapTypeId: 'hybrid', // displays a mixture of normal and satellite views
+    scrollwheel: false, // so that the map doesn't zoom while you're scrolling down the page
     gestureHandling: 'cooperative' 
-    // sets the gesture handling mode to 'cooperative',
-    // which means that on a mobile device, the user must swipe with one
-    // finger to scroll the page and two fingers to pan the map.
+      // sets the gesture handling mode to 'cooperative',
+      // which means that on a mobile device, the user must swipe with one
+      // finger to scroll the page and two fingers to pan the map.
   };
 
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
@@ -149,26 +145,27 @@ function callback(results, status) {
         // $(".js-blood-address").text(address);
 
 
+          // $(".js-bank-header").text('Blood Banks:');
+          // $(".js-bank-text").text('Blah blah blah');
+          $(".js-card-row").append(
 
-$(".js-card-row").append(
-
-        `<div class="col s12 m6 l4">
-          <div class="card horizontal">
-              <div class="card-image">
-                <img src="assets/donate.png">
-              </div>
-              <div class="card-stacked">
-                <div class="card-content">
-                  <strong><p class="js-blood-name">${name}</p></strong>
-                  <div class="divider"></div>
-                  <p class="js-blood-address">${address}</p>
-                </div>
-               </div> <!-- stacked -->                  
-            </div> <!-- card -->
-        </div> <!-- col -->`
-);
-
-
+                  `<div class="col s12 m6 l4">
+                    <div class="card horizontal">
+                        <div class="card-image">
+                          <a href="#">
+                          <img src="assets/donate.png">
+                          </a>
+                        </div>
+                        <div class="card-stacked">
+                          <div class="card-content">
+                            <strong><p class="js-blood-name">${name}</p></strong>
+                            <div class="divider"></div>
+                            <p class="js-blood-address">${address}</p>
+                          </div>
+                         </div> <!-- stacked -->                  
+                      </div> <!-- card -->
+                  </div> <!-- col -->`
+          );
 
       }
     }
@@ -197,7 +194,4 @@ function changeNavbar(){
            $("nav").removeClass("active");
         }
 }
-
-
-
 
