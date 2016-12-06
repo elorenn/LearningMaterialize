@@ -92,7 +92,7 @@ function onError(err){
 function createMap(position){
   var mapOptions = {
     center: position,
-    zoom: 16,
+    zoom: 13,
     mapTypeId: 'hybrid',
     // displays a mixture of normal and satellite views
     scrollwheel: false, 
@@ -128,6 +128,14 @@ function callback(results, status) {
       for (var i = 0; i < results.length; i++) {
           console.log(results[i]);
           createMarker(results[i].geometry.location);
+          console.log(results[i].formatted_address);
+          console.log(results[i].name);
+          console.log(results[i].opening_hours.open_now);
+          // console.log(results[i]);
+          // console.log(results[i]);
+          // console.log(results[i]);
+          // console.log(results[i]);
+          // console.log(results[i]);
       }
     }
 }
@@ -154,6 +162,8 @@ function changeNavbar(){
            $("nav").removeClass("active");
         }
 }
+
+
 
 
 
