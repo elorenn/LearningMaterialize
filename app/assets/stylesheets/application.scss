@@ -98,6 +98,8 @@ nav {
 }
 
 
+
+
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
@@ -166,11 +168,11 @@ nav {
 // ===============================================
 
 #thing {
-   height: 500px;
+  height: 100vh;
 }
 
 #map-canvas {
-  height: 500px;
+  height: 100vh;
   width: 100%;
   position: absolute; 
   z-index: 0;
