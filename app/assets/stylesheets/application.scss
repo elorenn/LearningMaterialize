@@ -87,6 +87,15 @@ nav {
   background-color: #000;
 }
 
+.side-nav {
+  margin-top: 64px;
+}
+
+#sidenav-overlay {
+  z-index: -9;
+}
+
+
 .active { 
   background-color: rgba(0,0,0,.75);
 }
