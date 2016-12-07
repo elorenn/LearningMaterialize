@@ -28,7 +28,7 @@ $(document).ready(function(){
 	  navigator.geolocation.getCurrentPosition(onLocation, onError);
 	}	
 
-
+  $('.scrollspy').scrollSpy();
  	$('.parallax').parallax();
   $(".button-collapse").sideNav();
   $('.slider').slider({full_width: true});

@@ -156,18 +156,15 @@ nav {
 }
 
 
-.hello-card {
-  z-index: 1;
-}
-
-.card {
-  z-index: 2;
-}
-
 
 // ===============================================
 
-#thing {
+// #blood-section {
+//    height: 100vh;
+// }
+
+
+#map-hello {
   height: 100vh;
 }
 
@@ -191,6 +188,11 @@ nav {
   background-color: red;
 }
 
+.hello-card {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+}
 
 
 
