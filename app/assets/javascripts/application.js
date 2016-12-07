@@ -31,6 +31,8 @@ $(document).ready(function(){
   $('.scrollspy').scrollSpy();
  	$('.parallax').parallax();
   $(".button-collapse").sideNav({
+   
+     
       //menuWidth: 200, // Default is 240
       // edge: 'right',
       //closeOnClick: true,
@@ -43,6 +45,14 @@ $(document).ready(function(){
 
   $("#human").on("click", intoHuman);
 	$("#vampire").on("click", intoVampire);
+
+  $(".menu").on("click", function(event){
+     $('body').css({
+            overflow: '',
+            width: ''
+          });
+  });
+
 
   $(window).on("scroll", changeNavbar);
 

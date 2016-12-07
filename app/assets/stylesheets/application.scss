@@ -89,6 +89,7 @@ nav {
 
 .side-nav {
   margin-top: 64px;
+  // width: 64px ;
 }
 
 #sidenav-overlay {
@@ -107,10 +108,6 @@ nav {
 
 
 
-
-// Place all the styles related to the main controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 
 // ================= Hello =========================
@@ -174,12 +171,13 @@ nav {
 
 #map-hello {
   height: 100vh;
+  padding-top: 64px;
 }
 
 #map-canvas {
   height: 100vh;
   width: 100%;
-  position: absolute; 
+  position: relative; 
   z-index: 0;
 }
 
@@ -205,6 +203,23 @@ nav {
 .sheer {
   background-color: rgba(0,0,0,.75);
 }
+
+
+
+.slider.fullscreen { 
+  position: relative;
+  height: 100vh;
+  z-index: 5;
+  margin: 0;
+}
+
+#top-section {
+  height: 100vh;
+  padding: 0;
+}
+
+// .section {
+// }
 
 // =================== Loading Spinner ============================
 
