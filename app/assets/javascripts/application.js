@@ -24,12 +24,12 @@ var infowindow;
 
 $(document).ready(function(){
 
-	if ("geolocation" in navigator){
-	  navigator.geolocation.getCurrentPosition(onLocation, onError);
-	}	
+  if ("geolocation" in navigator){
+    navigator.geolocation.getCurrentPosition(onLocation, onError);
+  } 
 
   $('.scrollspy').scrollSpy();
- 	// $('.parallax').parallax();
+  // $('.parallax').parallax();
   $(".button-collapse").sideNav({     
       //menuWidth: 200, // Default is 240
       // edge: 'right',
@@ -42,7 +42,7 @@ $(document).ready(function(){
   $('select').material_select();
 
   $("#human").on("click", intoHuman);
-	$("#vampire").on("click", intoVampire);
+  $("#vampire").on("click", intoVampire);
 
   $(".menu").on("click", function(event){
      $('body').css({
@@ -62,34 +62,34 @@ $(document).ready(function(){
 
 
 function intoHuman (event) {
-	event.preventDefault();
-	console.log("User is a human");
-	
+  event.preventDefault();
+  console.log("User is a human");
+  
   $("#bank-text-human").toggle();
   $("#bank-text-vampire").toggle();
 
-	$(".hello-vampire").toggle();
-	$(".hello-human").toggle();
+  $(".hello-vampire").toggle();
+  $(".hello-human").toggle();
 
-	$(".vampire-form").toggle();
-	$(".human-form").toggle();
+  $(".vampire-form").toggle();
+  $(".human-form").toggle();
 
 }
 
 function intoVampire (event) {
-	event.preventDefault();
-	console.log("User is a vampire");
-	
+  event.preventDefault();
+  console.log("User is a vampire");
+  
   $("#bank-text-human").toggle();
   $("#bank-text-vampire").toggle();
 
-	$(".hello-vampire").toggle();
-	$(".hello-human").toggle();
+  $(".hello-vampire").toggle();
+  $(".hello-human").toggle();
 
-	$(".vampire-form").toggle();
-	$(".human-form").toggle();
+  $(".vampire-form").toggle();
+  $(".human-form").toggle();
 
-	$(".adjective").text("indecisive");
+  $(".adjective").text("indecisive");
 
 }
 
@@ -165,12 +165,7 @@ function callback(results, status) {
           // console.log(isOpen);
           //console.log(firstPhoto);
         
-        // $(".js-blood-name").text(name);
-        // $(".js-blood-address").text(address);
 
-
-          // $(".js-bank-header").text('Blood Banks:');
-          // $(".js-bank-text").text('Blah blah blah');
           $(".js-card-row").append(
 
                   `<div class="col s12 m6 l4">
@@ -258,4 +253,3 @@ function changeNavbar(){
            $("nav").removeClass("active");
         }
 }
-

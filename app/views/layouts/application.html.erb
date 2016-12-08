@@ -19,34 +19,35 @@
         <div class="nav-wrapper">
           <a href="#!" class="brand-logo center white-text">VampMap</a>
           <a href="#" data-activates="slide-out" class="button-collapse show-on-large menu"><i class="material-icons">menu</i></a>
-          <!-- <a href="#" data-activates="slide-out" class="button show-side-nav right"><i class="material-icons">menu</i></a> -->
+         
+          <a href="#top-section" class="breadcrumb">Intro</a>
+          <a href="#map-hello" class="breadcrumb">Map</a>
+          <a href="#blood-section" class="breadcrumb">Recharge</a>
+      
 
         </div> <!-- nav-wrapper -->
       </nav>
     </div> <!-- navbar-fixed main-nav -->
 
-            <ul id="slide-out" class="side-nav sheer">
-                <li class="bold"><a href="#!" class="waves-effect waves-red white-text">First Sidebar Link</a></li>
+          <ul id="slide-out" class="side-nav sheer">
+            
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header white-text"><img src="/assets/blood-icon-7.png" alt="" class="circle">Blood Banks</div>
+                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+                <li>
+                  <div class="collapsible-header white-text"><img src="/assets/coffin-icon-4.png" alt="" class="circle">Havens</div>
+                  <div class="collapsible-body" style="background-color:rgba(0, 0, 0, 0.75);"><p>Lorem ipsum dolor sit amet.</p></div>
+                </li>
+            </ul>
 
-                <li class="bold"><a href="#!" class="white-text">Second Sidebar Link</a></li>
+            <li class="divider"></li>
+            
+            <li class="bold"><a href="#!" class="waves-effect waves-red white-text"><i class="material-icons white-text">add</i>Add Haven</a></li>
 
-                <li class="no-padding">
-                  <ul class="collapsible collapsible-accordion">
-                    <li>
-                      <a class="collapsible-header waves-effect waves-red white-text">Dropdown<i class="mdi-navigation-arrow-drop-down"></i></a>
-                      <div class="collapsible-body black sheer">
-                        <ul>
-                          <li><a class="white-text" href="#!">First</a></li>
-                          <li><a class="white-text" href="#!">Second</a></li>
-                          <li><a class="white-text" href="#!">Third</a></li>
-                          <li><a class="white-text" href="#!">Fourth</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul> <!-- collapsible-accordion -->
-                </li> <!-- no-padding -->
             </ul> <!-- side-nav -->    
-
+            
     <%= yield %>
 
     <footer class="page-footer">
