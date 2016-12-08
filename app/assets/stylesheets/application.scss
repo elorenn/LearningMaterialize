@@ -196,8 +196,9 @@ nav {
 
 .hello-card {
   position: absolute;
-  bottom: 10px;
+  top: 950px;
   left: 0px;
+  z-index: 9;
 }
 
 .sheer {

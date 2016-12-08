@@ -30,9 +30,7 @@ $(document).ready(function(){
 
   $('.scrollspy').scrollSpy();
  	$('.parallax').parallax();
-  $(".button-collapse").sideNav({
-   
-     
+  $(".button-collapse").sideNav({     
       //menuWidth: 200, // Default is 240
       // edge: 'right',
       //closeOnClick: true,
@@ -125,7 +123,7 @@ function createMap(position){
   };
 
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
-  createMarker(position);
+  vampMarker(position);
   createMarker({lat: 25.8068102, lng: -80.201181});
 
 
@@ -153,7 +151,7 @@ function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
           
-          createMarker(results[i].geometry.location);  
+          bloodMarker(results[i].geometry.location);  
 
           name = results[i].name
           address = results[i].formatted_address
@@ -205,10 +203,45 @@ function showHello (event) {
 }
 
 
+// regular marker
 function createMarker(position) {
    marker = new google.maps.Marker({
    position: position,
    map: map
+ });
+
+}
+
+
+// vampire marker
+var vamp = "/assets/vampire-icon.png"
+function vampMarker(position) {
+   marker = new google.maps.Marker({
+   position: position,
+   map: map,
+   icon: vamp
+ });
+
+}
+
+// haven marker
+var haven = "/assets/coffin-icon.png"
+function havenMarker(position) {
+   marker = new google.maps.Marker({
+   position: position,
+   map: map,
+   icon: haven
+ });
+
+}
+
+// blood marker
+var blood = "/assets/blood-icon.png"
+function bloodMarker(position) {
+   marker = new google.maps.Marker({
+   position: position,
+   map: map,
+   icon: blood
  });
 
 }
