@@ -85,6 +85,8 @@ main {
 
 nav {
   background-color: #000;
+  // position:relative;
+  // z-index: 100;
 }
 
 .side-nav {
@@ -164,14 +166,22 @@ nav {
 
 // ===============================================
 
-// #blood-section {
-//    max-height: 80vh;
-// }
 
+#top-section {
+  height: 100vh;
+  // height: -o-calc(100% - 65px); /* opera */
+  // height: -webkit-calc(100% - 65px); /* google, safari */
+  // height: -moz-calc(100% - 65px); /* firefox */
+  padding: 0;
+}
 
 #map-hello {
   height: 100vh;
   padding-top: 64px;
+}
+
+#blood-section {
+  height: 100vh;
 }
 
 #map-canvas {
@@ -214,13 +224,7 @@ nav {
   margin: 0;
 }
 
-#top-section {
-  height: 100vh;
-  padding: 0;
-}
 
-// .section {
-// }
 
 // =================== Loading Spinner ============================
 

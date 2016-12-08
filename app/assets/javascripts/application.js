@@ -29,7 +29,7 @@ $(document).ready(function(){
 	}	
 
   $('.scrollspy').scrollSpy();
- 	$('.parallax').parallax();
+ 	// $('.parallax').parallax();
   $(".button-collapse").sideNav({     
       //menuWidth: 200, // Default is 240
       // edge: 'right',
@@ -124,7 +124,7 @@ function createMap(position){
 
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
   vampMarker(position);
-  createMarker({lat: 25.8068102, lng: -80.201181});
+  havenMarker({lat: 25.8068102, lng: -80.201181});
 
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
@@ -214,7 +214,7 @@ function createMarker(position) {
 
 
 // vampire marker
-var vamp = "/assets/vampire-icon.png"
+var vamp = "/assets/vampire-icon-2.png"
 function vampMarker(position) {
    marker = new google.maps.Marker({
    position: position,
@@ -225,7 +225,9 @@ function vampMarker(position) {
 }
 
 // haven marker
-var haven = "/assets/coffin-icon.png"
+var haven = {
+  url: "/assets/coffin-icon-4.png",
+};
 function havenMarker(position) {
    marker = new google.maps.Marker({
    position: position,
@@ -236,7 +238,9 @@ function havenMarker(position) {
 }
 
 // blood marker
-var blood = "/assets/blood-icon.png"
+var blood = {
+  url: "/assets/blood-icon-7.png",
+};
 function bloodMarker(position) {
    marker = new google.maps.Marker({
    position: position,
