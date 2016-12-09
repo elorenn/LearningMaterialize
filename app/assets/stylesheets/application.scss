@@ -177,7 +177,7 @@ nav {
 
 #map-padding {
   // height: 100vh;
-  padding-top: 64px;
+  padding-top: 68px;
 }
 
 #map-section {
@@ -238,6 +238,20 @@ p#bank-list {
   padding: 0px;
 }
 
+p.haven-name.red-text {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+p.haven-address {
+  padding-top: 0px;
+  padding-bottom: 15px;
+  padding-left: 45px;
+}
+
+p#haven-list {
+  padding: 0px;
+}
 
 
 

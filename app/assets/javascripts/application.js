@@ -38,7 +38,10 @@ $(document).ready(function(){
       draggable: true
     });
 
-  $('.collapsible').collapsible();
+  $('.collapsible').collapsible({
+    onOpen: console.log("Im open")
+  });
+
 
 
   $('.slider').slider({full_width: true});
@@ -57,7 +60,7 @@ $(document).ready(function(){
 
   $(window).on("scroll", changeNavbar);
 
-  $(window).on("scroll", dropMarker);
+  // $(window).on("scroll", dropMarker);
 
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal').modal();
@@ -66,15 +69,15 @@ $(document).ready(function(){
 });
 
 
-function dropMarker(argument) {
-  if ($(window).scrollTop()  > $(window).height() + 10)
-    {
-        console.log("you've reached the map section");
-        vampMarker(myPosition); 
-        // unbind the scroll event if the execution of this code is only desired once:
-        $(this).unbind('scroll');
-    }
-}
+// function dropMarker(argument) {
+//   if ($(window).scrollTop()  > $(window).height() + 10)
+//     {
+//         console.log("you've reached the map section");
+//         vampMarker(myPosition); 
+//         // unbind the scroll event if the execution of this code is only desired once:
+//         //$(this).unbind('scroll');
+//     }
+// }
 
 function changeNavbar(){
   if($(window).scrollTop() > 60) {
@@ -140,64 +143,122 @@ function createMap(position){
   };
 
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
-  //vampMarker(position);
-  havenMarker({lat: 25.8068102, lng: -80.201181});
+  vampMarker(position);
 
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
 
-  marker.addListener('click', function() {
-          map.setZoom(8);
-          map.setCenter(marker.getPosition());
-        });
+  // marker.addListener('click', function() {
+  //         map.setZoom(8);
+  //         map.setCenter(marker.getPosition());
+  //       });
 
   infowindow = new google.maps.InfoWindow();
-  var service = new google.maps.places.PlacesService(map);
+  var banks = new google.maps.places.PlacesService(map);
 
-        service.textSearch({
+        banks.textSearch({
           location: {lat: position.lat, lng: position.lng},
           radius: 1000,
           query: ['blood' + 'bank']
-        }, callback);
+        }, createBanks);
 
-}
+  var dracula = new google.maps.places.PlacesService(map);      
+
+        dracula.textSearch({
+          location: {lat: position.lat, lng: position.lng},
+          radius: 1000,
+          query: ['dracula']
+        }, createHavens);          
+
+  var vampire = new google.maps.places.PlacesService(map);      
+
+        vampire.textSearch({
+          location: {lat: position.lat, lng: position.lng},
+          radius: 1000,
+          query: ['vampire']
+        }, createHavens);          
+
+  var cemeteries = new google.maps.places.PlacesService(map);      
+
+        cemeteries.textSearch({
+          location: {lat: position.lat, lng: position.lng},
+          radius: 500,
+          query: ['cemetery']
+        }, createHavens);
+  
+
+} //createMap
 
 
 
-function callback(results, status) {
+function createBanks(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
           
           bloodMarker(results[i].geometry.location);  
 
-          name = results[i].name
-          address = results[i].formatted_address
+          bloodName = results[i].name
+          bloodAddress = results[i].formatted_address
+          bloodId = results[i].place_id
           // isOpen = results[i].opening_hours.open_now
-          //firstPhoto = results[i].photos[0].html_attributions[0]
-          //var website = 
-          // var phone =     
+          //firstPhoto = results[i].photos[0].html_attributions[0]  
           // console.log(results[i]);
           // console.log(name);
           // console.log(address);
           // console.log(isOpen);
-          //console.log(firstPhoto);
-
-
+          
           $("#bank-list").append(
 
-                `<p class="blood-name red-text"> 
-                  <strong> ${name} </strong> 
-                </p>
+              `<p class="blood-name red-text"> 
+                <strong> ${bloodName} </strong> 
+              </p>
 
-                <p class="blood-address">       
-                  ${address}
-                </p>`
-
+              <p class="blood-address">       
+                ${bloodAddress}
+              </p>`
           );  
-
       } // => for loop
     } // => if loop
-} // => callback
+} // => createBanks
+
+
+
+function createHavens(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+          
+          havenMarker(results[i].geometry.location);  
+
+          havenName = results[i].name
+          havenAddress = results[i].formatted_address
+          havenId = results[i].place_id
+        
+
+          console.log(results[i]);
+          console.log(results[i].place_id);
+          console.log(results[i].name);
+          console.log(results[i].formatted_address);
+  
+
+      haven-open
+
+      $("#haven-list").append(
+
+          `<p class="haven-name red-text"> 
+            <strong> ${havenName} </strong> 
+          </p>
+
+          <p class="haven-address">       
+            ${havenAddress}
+          </p>`
+        );
+      } // => for loop
+    } // => if loop
+} // => createCemeteries
+
+
+
+
 
 
 function showHello (event) {
