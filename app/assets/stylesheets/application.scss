@@ -175,11 +175,14 @@ nav {
   padding: 0;
 }
 
-#map-hello {
-  height: 100vh;
+#map-padding {
+  // height: 100vh;
   padding-top: 64px;
 }
 
+#map-section {
+  height: 100vh;
+}
 
 #map-canvas {
   height: 100vh;

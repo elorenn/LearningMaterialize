@@ -21,6 +21,7 @@ console.log("APP ONLINE");
 
 var map;
 var infowindow;
+var myPosition;
 
 $(document).ready(function(){
 
@@ -38,6 +39,8 @@ $(document).ready(function(){
     });
 
   $('.collapsible').collapsible();
+
+
   $('.slider').slider({full_width: true});
   $('select').material_select();
 
@@ -46,13 +49,15 @@ $(document).ready(function(){
 
   $(".menu").on("click", function(event){
      $('body').css({
-            overflow: '',
-            width: ''
-          });
+      overflow: '',
+      width: ''
+    });
   });
 
 
   $(window).on("scroll", changeNavbar);
+
+  $(window).on("scroll", dropMarker);
 
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal').modal();
@@ -60,6 +65,24 @@ $(document).ready(function(){
 
 });
 
+
+function dropMarker(argument) {
+  if ($(window).scrollTop()  > $(window).height() + 10)
+    {
+        console.log("you've reached the map section");
+        vampMarker(myPosition); 
+        // unbind the scroll event if the execution of this code is only desired once:
+        $(this).unbind('scroll');
+    }
+}
+
+function changeNavbar(){
+  if($(window).scrollTop() > 60) {
+            $("nav").addClass("active");
+        } else {
+           $("nav").removeClass("active");
+        }
+}
 
 function intoHuman (event) {
   event.preventDefault();
@@ -91,7 +114,7 @@ function onLocation(position){
 
   console.log("Getting location");
 
-  var myPosition = {
+  myPosition = {
     lat: position.coords.latitude,
     lng: position.coords.longitude
   };
@@ -117,7 +140,7 @@ function createMap(position){
   };
 
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
-  vampMarker(position);
+  //vampMarker(position);
   havenMarker({lat: 25.8068102, lng: -80.201181});
 
 
@@ -153,9 +176,9 @@ function callback(results, status) {
           //firstPhoto = results[i].photos[0].html_attributions[0]
           //var website = 
           // var phone =     
-          console.log(results[i]);
-          console.log(name);
-          console.log(address);
+          // console.log(results[i]);
+          // console.log(name);
+          // console.log(address);
           // console.log(isOpen);
           //console.log(firstPhoto);
 
@@ -204,7 +227,6 @@ function vampMarker(position) {
    map: map,
    icon: vamp
  });
-
 }
 
 // haven marker
@@ -236,10 +258,4 @@ function bloodMarker(position) {
 }
 
 
-function changeNavbar(){
-  if($(window).scrollTop() > 60) {
-            $("nav").addClass("active");
-        } else {
-           $("nav").removeClass("active");
-        }
-}
+
