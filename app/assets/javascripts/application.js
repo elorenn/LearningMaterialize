@@ -130,10 +130,18 @@ function fetchDirections () {
 //origin: "{lat:35.467560, lng:-97.516428}",
 //destination: "{lat: 35.221997, lng: -101.831297}",
 
+
+console.log($(this).data("lat"));
+console.log($(this).data("lng"));
+var thisLat = $(this).data("lat");
+var thisLng = $(this).data("lng");
+console.log(myPosition);
+//destination: `${thisLat},${thisLng}`,
+
   var tripDescription = {
-    origin: "35.4813522,-98.0396727",
-    destination: "35.2018863,-101.945027",
-    travelMode: "DRIVING"
+    origin: myPosition,
+    destination: `${thisLat},${thisLng}`,
+    travelMode: "WALKING"
   };
 
   var directionsService = new google.maps.DirectionsService();
