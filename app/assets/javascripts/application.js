@@ -22,6 +22,8 @@ console.log("APP ONLINE");
 var map;
 var infowindow;
 var myPosition;
+var directionsDisplay;
+
 
 $(document).ready(function(){
 
@@ -111,13 +113,54 @@ $(document).ready(function(){
 
 function fetchDirections () {
 
+  console.log("getting directions");
+
+      // $.ajax({
+      //   type: "GET",
+      //   // url of API:
+      //   url: "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood4&key=AIzaSyAHWZanoBZQrmKa3QV88EqNfbGnT0GMzSQ",
+      //   // first callback (for success):
+      //   success: showDirections,  
+      //   // second callback (for error):
+      //   error: handleError,
+      // });
+
+// origin: "{oklahoma city, ok}",
+// destination: "{amarillo, tx}",
+//origin: "{lat:35.467560, lng:-97.516428}",
+//destination: "{lat: 35.221997, lng: -101.831297}",
+
+  var tripDescription = {
+    origin: "35.4813522,-98.0396727",
+    destination: "35.2018863,-101.945027",
+    travelMode: "DRIVING"
+  };
+
+  var directionsService = new google.maps.DirectionsService();
+  directionsService.route(tripDescription, showDirections);
+
+} // => fetchDirections
 
 
+function showDirections (result, status) {
+  if (status == 'OK') {
+    console.log("showing the directions");
+    console.log(result);
 
+    directionsDisplay.setDirections(result);
+  }
+  else {
+    console.log("OMG Y U NO OK?");
+    console.log(result);
+    console.log(status);
+  }
 }
 
 
-
+function handleError (error) {
+  console.log("Could not fetch directions");
+  console.log(error.responseText);
+}
 
 
 
@@ -187,9 +230,12 @@ function createMap(position){
       // finger to scroll the page and two fingers to pan the map.
   };
 
+
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
   vampMarker(position);
 
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay.setMap(map);
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
 
@@ -263,13 +309,14 @@ function createBanks(results, status) {
                 <strong> ${bloodName} </strong> 
               </p>
 
-              <p class="blood-address">       
+              <p class="blood-address" data-lat="${bloodLat}" data-lng="${bloodLng}">       
                 ${bloodAddress}
               </p>`
           );  
       } // => for loop
 
       $('.blood-name').on("click", moveCenter);
+      $('.blood-address').on("click", fetchDirections);
 
     } // => if 
 }; // => createBanks
@@ -313,13 +360,14 @@ function createHavens(results, status) {
             <strong> ${havenName} </strong> 
           </p>
 
-          <p class="haven-address">       
+          <p class="haven-address" data-lat="${havenLat}" data-lng="${havenLng}"">       
             ${havenAddress}
           </p>`
         );
       } // => for loop
 
       $('.haven-name').on("click", moveCenter);
+      $('.haven-address').on("click", fetchDirections);
 
     } // => if 
 }; // => createCemeteries
