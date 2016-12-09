@@ -188,6 +188,7 @@ function showHello (event) {
 function createMarker(position) {
    marker = new google.maps.Marker({
    position: position,
+   animation: google.maps.Animation.DROP,
    map: map
  });
 
@@ -199,6 +200,7 @@ var vamp = "/assets/vampire-icon-2.png"
 function vampMarker(position) {
    marker = new google.maps.Marker({
    position: position,
+   animation: google.maps.Animation.DROP,
    map: map,
    icon: vamp
  });
@@ -212,6 +214,7 @@ var haven = {
 function havenMarker(position) {
    marker = new google.maps.Marker({
    position: position,
+   animation: google.maps.Animation.DROP,
    map: map,
    icon: haven
  });
@@ -225,6 +228,7 @@ var blood = {
 function bloodMarker(position) {
    marker = new google.maps.Marker({
    position: position,
+   animation: google.maps.Animation.DROP,
    map: map,
    icon: blood
  });
