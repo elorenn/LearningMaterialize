@@ -38,8 +38,8 @@ $(document).ready(function(){
       draggable: true
     });
 
-  $('.collapsible').collapsible({
-    onOpen: console.log("Im open")
+  $('.js-side-collapsible').collapsible({
+    onOpen: function(el) { console.log("OPEN", el.attr("id")); },
   });
 
 
@@ -66,7 +66,8 @@ $(document).ready(function(){
   $('.modal').modal();
 
 
-});
+}); //document-ready 
+
 
 
 // function dropMarker(argument) {
@@ -200,16 +201,19 @@ function createBanks(results, status) {
           bloodName = results[i].name
           bloodAddress = results[i].formatted_address
           bloodId = results[i].place_id
+          bloodLat = results[i].geometry.location.lat()
+          bloodLng = results[i].geometry.location.lng()
           // isOpen = results[i].opening_hours.open_now
           //firstPhoto = results[i].photos[0].html_attributions[0]  
           // console.log(results[i]);
           // console.log(name);
           // console.log(address);
           // console.log(isOpen);
+
           
           $("#bank-list").append(
 
-              `<p class="blood-name red-text"> 
+              `<p class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
                 <strong> ${bloodName} </strong> 
               </p>
 
@@ -218,8 +222,20 @@ function createBanks(results, status) {
               </p>`
           );  
       } // => for loop
-    } // => if loop
+
+      $('.blood-name').on("click", moveCenter);
+
+    } // => if 
 } // => createBanks
+
+function moveCenter () {
+  console.log("moving the center");
+  console.log($(this).data("lat"));
+  console.log($(this).data("lng"));
+  var thisLat = $(this).data("lat");
+  var thisLng = $(this).data("lng");
+  map.setCenter({lat: thisLat, lng: thisLng}); 
+}
 
 
 
@@ -232,19 +248,22 @@ function createHavens(results, status) {
           havenName = results[i].name
           havenAddress = results[i].formatted_address
           havenId = results[i].place_id
+          havenLat = results[i].geometry.location.lat()
+          havenLng = results[i].geometry.location.lng()
         
-
-          console.log(results[i]);
-          console.log(results[i].place_id);
-          console.log(results[i].name);
-          console.log(results[i].formatted_address);
+        
+          // console.log(results[i].name);
+          // console.log(results[i].geometry.location.lat());
+          // console.log(results[i].geometry.location.lng());
+          // console.log(results[i].place_id);
+          // console.log(results[i].formatted_address);
   
 
       haven-open
 
       $("#haven-list").append(
 
-          `<p class="haven-name red-text"> 
+          `<p class="haven-name red-text" data-lat="${havenLat}" data-lng="${havenLng}"> 
             <strong> ${havenName} </strong> 
           </p>
 
@@ -253,7 +272,10 @@ function createHavens(results, status) {
           </p>`
         );
       } // => for loop
-    } // => if loop
+
+      $('.haven-name').on("click", moveCenter);
+
+    } // => if 
 } // => createCemeteries
 
 
