@@ -200,8 +200,12 @@ nav {
   background-color: rgba(0,0,0,.75);
 }
 
-.nav-collapse {
- background-color: rgba(0,0,0,.75);
+// .nav-collapse {
+//  background-color: rgba(0,0,0,.75);
+// }
+
+.side-nav .collapsible-body, .side-nav.fixed .collapsible-body {
+  background-color: transparent;
 }
 
 p {

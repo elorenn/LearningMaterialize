@@ -38,9 +38,20 @@ $(document).ready(function(){
       draggable: true
     });
 
+
+
   $('.js-side-collapsible').collapsible({
-    onOpen: function(el) { console.log("OPEN", el.attr("id")); },
+
+    // onOpen: function(el) { 
+    //   console.log("OPEN", el.attr("id")); 
+    // },
+
   });
+
+
+  // $('#blood-open').one("click", dropBloodMarker);
+  // $('#haven-open').one("click", dropHavenMarker);
+  
 
 
 
@@ -60,13 +71,30 @@ $(document).ready(function(){
 
   $(window).on("scroll", changeNavbar);
 
-  // $(window).on("scroll", dropMarker);
+  // $(window).one("scroll", dropMarker)
+  
 
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal').modal();
 
 
 }); //document-ready 
+
+
+
+// function dropBloodMarker(argument) {
+
+//   console.log("dropping blood marker");
+//   vampMarker(myPosition);
+ 
+// };
+
+// function dropHavenMarker(argument) {
+
+//   console.log("dropping haven marker");
+//   vampMarker(myPosition);
+ 
+// };
 
 
 
@@ -79,6 +107,22 @@ $(document).ready(function(){
 //         //$(this).unbind('scroll');
 //     }
 // }
+
+
+function fetchDirections () {
+
+
+
+
+}
+
+
+
+
+
+
+
+
 
 function changeNavbar(){
   if($(window).scrollTop() > 60) {
@@ -192,6 +236,8 @@ function createMap(position){
 
 
 
+
+
 function createBanks(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
@@ -226,7 +272,7 @@ function createBanks(results, status) {
       $('.blood-name').on("click", moveCenter);
 
     } // => if 
-} // => createBanks
+}; // => createBanks
 
 function moveCenter () {
   console.log("moving the center");
@@ -235,7 +281,7 @@ function moveCenter () {
   var thisLat = $(this).data("lat");
   var thisLng = $(this).data("lng");
   map.setCenter({lat: thisLat, lng: thisLng}); 
-}
+};
 
 
 
@@ -276,7 +322,7 @@ function createHavens(results, status) {
       $('.haven-name').on("click", moveCenter);
 
     } // => if 
-} // => createCemeteries
+}; // => createCemeteries
 
 
 
@@ -287,7 +333,7 @@ function showHello (event) {
   console.log('map finished loading!');
   Materialize.fadeInImage('#hello-fade');
 
-}
+};
 
 
 // regular marker
@@ -298,7 +344,7 @@ function createMarker(position) {
    map: map
  });
 
-}
+};
 
 
 // vampire marker
