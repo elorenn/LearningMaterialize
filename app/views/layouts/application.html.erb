@@ -29,24 +29,50 @@
       </nav>
     </div> <!-- navbar-fixed main-nav -->
 
-          <ul id="slide-out" class="side-nav sheer">
+          <ul id="slide-out" class="side-nav black sheer">
             
-            <ul class="collapsible" data-collapsible="accordion">
+            <ul class="collapsible" data-collapsible="expandable">
+
                 <li>
                   <div class="collapsible-header white-text"><img src="/assets/blood-icon-7.png" alt="" class="circle">Blood Banks</div>
-                  <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+                  <div class="collapsible-body black grey-text">
+                    
+                    <p class="nav-collapse" id="bank-list">
+                       
+                    </p> <!-- nav-collapse -->
+
+
+                      <!-- <p class="nav-collapse blood-name name red-text"> 
+                        <strong>Continental Blood Bank </strong> 
+                      </p> --> <!-- nav-collapse -->
+                      <!-- <p class="nav-collapse blood-address address">           
+                        2901 W Broward Blvd, Fort Lauderdale, FL 33312, United States
+                      </p> --> <!-- nav-collapse -->
+
+
+                  </div> <!-- collapsible-body -->
                 </li>
+
                 <li>
                   <div class="collapsible-header white-text"><img src="/assets/coffin-icon-4.png" alt="" class="circle">Havens</div>
-                  <div class="collapsible-body" style="background-color:rgba(0, 0, 0, 0.75);"><p>Lorem ipsum dolor sit amet.</p></div>
+                  <div class="collapsible-body black grey-text" id="#haven-list">
+                      <p class="nav-collapse haven-name name red-text"> 
+                        <strong>Dracula's Coffin</strong> 
+                      </p> <!-- nav-collapse -->
+                      <p class="nav-collapse haven-address address">           
+                        2901 W Broward Blvd, Fort Lauderdale, FL 33312, United States
+                      </p> <!-- nav-collapse -->   
+                  </div>
                 </li>
-            </ul>
+
+            </ul> <!-- collapsible -->
 
             <li class="divider"></li>
             
             <li class="bold"><a href="#!" class="waves-effect waves-red white-text"><i class="material-icons white-text">add</i>Add Haven</a></li>
 
-            </ul> <!-- side-nav -->    
+            <li class="divider"></li>
+        </ul> <!-- side-nav -->    
             
     <%= yield %>
 

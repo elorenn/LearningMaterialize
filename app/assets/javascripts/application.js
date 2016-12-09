@@ -65,9 +65,6 @@ function intoHuman (event) {
   event.preventDefault();
   console.log("User is a human");
   
-  $("#bank-text-human").toggle();
-  $("#bank-text-vampire").toggle();
-
   $(".hello-vampire").toggle();
   $(".hello-human").toggle();
 
@@ -79,9 +76,6 @@ function intoHuman (event) {
 function intoVampire (event) {
   event.preventDefault();
   console.log("User is a vampire");
-  
-  $("#bank-text-human").toggle();
-  $("#bank-text-vampire").toggle();
 
   $(".hello-vampire").toggle();
   $(".hello-human").toggle();
@@ -164,31 +158,23 @@ function callback(results, status) {
           console.log(address);
           // console.log(isOpen);
           //console.log(firstPhoto);
-        
 
-          $(".js-card-row").append(
 
-                  `<div class="col s12 m6 l4">
-                    <div class="card horizontal">
-                        <div class="card-image">
-                          <a href="#">
-                          <img src="assets/donate.png">
-                          </a>                
-                        </div>
-                        <div class="card-stacked">
-                          <div class="card-content">
-                            <strong><p class="js-blood-name">${name}</p></strong>
-                            <div class="divider"></div>
-                            <p class="js-blood-address">${address}</p>
-                          </div>
-                         </div> <!-- stacked -->                  
-                      </div> <!-- card -->
-                  </div> <!-- col -->`
-          );
+          $("#bank-list").append(
 
-      }
-    }
-}
+                `<p class="blood-name red-text"> 
+                  <strong> ${name} </strong> 
+                </p>
+
+                <p class="blood-address">       
+                  ${address}
+                </p>`
+
+          );  
+
+      } // => for loop
+    } // => if loop
+} // => callback
 
 
 function showHello (event) {

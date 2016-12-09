@@ -180,9 +180,6 @@ nav {
   padding-top: 64px;
 }
 
-#blood-section {
-  height: 100vh;
-}
 
 #map-canvas {
   height: 100vh;
@@ -208,17 +205,49 @@ nav {
   position: absolute;
   top: 950px;
   left: 0px;
-  z-index: 9;
+  // z-index: 9;
 }
 
 .sheer {
   background-color: rgba(0,0,0,.75);
 }
 
-.collapsible-body {
-  background-color: rgba(0,0,0,.75);
+.nav-collapse {
+ background-color: rgba(0,0,0,.75);
 }
 
+p {
+  padding: 0px;
+}
+
+p.blood-name.red-text {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+p.blood-address {
+  padding-top: 0px;
+  padding-bottom: 15px;
+  padding-left: 45px;
+}
+
+p#bank-list {
+  padding: 0px;
+}
+
+
+
+
+.haven-name {
+ padding-top: 0px;
+ padding-bottom: 0px;
+}
+
+.haven-address {
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+}
 
 .slider.fullscreen { 
   position: relative;
@@ -227,6 +256,15 @@ nav {
   margin: 0;
 }
 
+.collapsible-body .collection {
+  border-width: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#slide-out {
+  overflow-y: auto;
+}
 
 
 // =================== Loading Spinner ============================
