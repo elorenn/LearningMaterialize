@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "sprockets-es6", require: "sprockets/es6"
 gem 'materialize-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
