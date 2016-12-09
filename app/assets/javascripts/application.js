@@ -113,30 +113,15 @@ $(document).ready(function(){
 
 function fetchDirections () {
 
-  console.log("getting directions");
+console.log("getting directions");
 
-      // $.ajax({
-      //   type: "GET",
-      //   // url of API:
-      //   url: "https://maps.googleapis.com/maps/api/directions/json?origin=Disneyland&destination=Universal+Studios+Hollywood4&key=AIzaSyAHWZanoBZQrmKa3QV88EqNfbGnT0GMzSQ",
-      //   // first callback (for success):
-      //   success: showDirections,  
-      //   // second callback (for error):
-      //   error: handleError,
-      // });
+// console.log($(this).data("lat"));
+// console.log($(this).data("lng"));
+// console.log(myPosition);
 
-// origin: "{oklahoma city, ok}",
-// destination: "{amarillo, tx}",
-//origin: "{lat:35.467560, lng:-97.516428}",
-//destination: "{lat: 35.221997, lng: -101.831297}",
-
-
-console.log($(this).data("lat"));
-console.log($(this).data("lng"));
 var thisLat = $(this).data("lat");
 var thisLng = $(this).data("lng");
-console.log(myPosition);
-//destination: `${thisLat},${thisLng}`,
+
 
   var tripDescription = {
     origin: myPosition,
@@ -242,7 +227,9 @@ function createMap(position){
   map = new google.maps.Map($('#map-canvas')[0], mapOptions);
   vampMarker(position);
 
-  directionsDisplay = new google.maps.DirectionsRenderer();
+  directionsDisplay = new google.maps.DirectionsRenderer({
+    suppressMarkers: true,
+  });
   directionsDisplay.setMap(map);
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
