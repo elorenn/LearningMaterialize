@@ -267,11 +267,11 @@ function createBanks(results, status) {
           
           bloodMarker(results[i].geometry.location);  
 
-          bloodName = results[i].name
-          bloodAddress = results[i].formatted_address
-          bloodId = results[i].place_id
-          bloodLat = results[i].geometry.location.lat()
-          bloodLng = results[i].geometry.location.lng()
+          var bloodName = results[i].name
+          var bloodAddress = results[i].formatted_address
+          var bloodId = results[i].place_id
+          var bloodLat = results[i].geometry.location.lat()
+          var bloodLng = results[i].geometry.location.lng()
           // isOpen = results[i].opening_hours.open_now
           //firstPhoto = results[i].photos[0].html_attributions[0]  
           // console.log(results[i]);
@@ -315,11 +315,11 @@ function createHavens(results, status) {
           
           havenMarker(results[i].geometry.location);  
 
-          havenName = results[i].name
-          havenAddress = results[i].formatted_address
-          havenId = results[i].place_id
-          havenLat = results[i].geometry.location.lat()
-          havenLng = results[i].geometry.location.lng()
+          var havenName = results[i].name
+          var havenAddress = results[i].formatted_address
+          var havenId = results[i].place_id
+          var havenLat = results[i].geometry.location.lat()
+          var havenLng = results[i].geometry.location.lng()
         
         
           // console.log(results[i].name);
@@ -363,7 +363,7 @@ function showHello (event) {
 
 // regular marker
 function createMarker(position) {
-   marker = new google.maps.Marker({
+   var marker = new google.maps.Marker({
    position: position,
    animation: google.maps.Animation.DROP,
    map: map
@@ -375,7 +375,7 @@ function createMarker(position) {
 // vampire marker
 var vamp = "/assets/vampire-icon-2.png"
 function vampMarker(position) {
-   marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
    position: position,
    animation: google.maps.Animation.DROP,
    map: map,
@@ -383,12 +383,13 @@ function vampMarker(position) {
  });
 }
 
+
 // haven marker
 var haven = {
   url: "/assets/coffin-icon-4.png",
 };
 function havenMarker(position) {
-   marker = new google.maps.Marker({
+   var marker = new google.maps.Marker({
    position: position,
    animation: google.maps.Animation.DROP,
    map: map,
@@ -402,7 +403,7 @@ var blood = {
   url: "/assets/blood-icon-7.png",
 };
 function bloodMarker(position) {
-   marker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
    position: position,
    animation: google.maps.Animation.DROP,
    map: map,
