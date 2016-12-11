@@ -7,6 +7,7 @@ var myPosition;
 var directionsDisplay;
 
 
+
 $(document).ready(function(){
 
   if ("geolocation" in navigator){
@@ -93,7 +94,7 @@ $(document).ready(function(){
 
 
 function fetchDirections (event) {
-  event.preventDefault();
+  // event.preventDefault();
 
   console.log("getting directions");
 
@@ -111,11 +112,8 @@ function fetchDirections (event) {
       travelMode: "DRIVING",
     };
 
-    var directionsService = new google.maps.DirectionsService();
-    directionsService.route(tripDescription, showDirections);
-
-    var $toastContent = $('<span>I am toast content</span>');
-    Materialize.toast($toastContent, 5000);
+  var directionsService = new google.maps.DirectionsService();
+  directionsService.route(tripDescription, showDirections);
 
 } // => fetchDirections
 
@@ -216,6 +214,7 @@ function createMap(position){
     suppressMarkers: true,
   });
   directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('directionsPanel'));
 
   google.maps.event.addListenerOnce(map, 'tilesloaded', showHello);
 
@@ -292,13 +291,12 @@ function createBanks(results, status) {
           
           $("#bank-list").append(
 
-              `<li id="bank-list-li"><a href="#" class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
+              `<p class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
                 <strong> ${bloodName} </strong> 
-              </a></li>
-              
-              <li id="bank-list-li"><a href="#" class="blood-address grey-text" data-lat="${bloodLat}" data-lng="${bloodLng}">       
+              </p>
+              <p class="blood-address" data-lat="${bloodLat}" data-lng="${bloodLng}">       
                 ${bloodAddress}
-              </a></li>`
+              </p>`
           );  
       } // => for loop
 
@@ -307,6 +305,7 @@ function createBanks(results, status) {
 
     } // => if 
 }; // => createBanks
+
 
 
 
@@ -351,11 +350,10 @@ function createHavens(results, status) {
           `<p class="haven-name red-text" data-lat="${havenLat}" data-lng="${havenLng}"> 
             <strong> ${havenName} </strong> 
           </p>
-
-          <p class="haven-address" data-lat="${havenLat}" data-lng="${havenLng}"">       
+          <p class="haven-address" data-lat="${havenLat}" data-lng="${havenLng}">       
             ${havenAddress}
           </p>`
-        );
+        );  
       } // => for loop
 
       $('.haven-name').on("click", moveCenter);
