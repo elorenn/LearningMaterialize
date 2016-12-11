@@ -319,10 +319,11 @@ p#haven-list {
   overflow-y: auto;
 }
 
-// .toast {
-//   background-color: rgba(0,0,0,.75);
-// }
-
+#directionsPanel {
+  width:100%;
+  height: 100%;
+  z-index: 999;
+}
 
 // =================== Loading Spinner ============================
 
