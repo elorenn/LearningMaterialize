@@ -325,7 +325,8 @@ p#haven-list {
   z-index: 999;
 }
 
-// words on google maps direction panel:
+// ================  Google Maps Direction Panel ====================
+
 .adp table {
   color: white !important;
 }
@@ -336,12 +337,23 @@ p#haven-list {
 
 img.adp-marker {
   content:url("/assets/vampire-icon-2.png");
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
 }
 
 .adp-placemark {
   background-color: transparent !important;
+  border-right-width: 0px !important;
+  border-left-width: 0px !important;
+
+}
+
+.adp-summary {
+  padding-left: 25px !important;
+}
+
+.adp-substep {
+  padding-right: 15px !important;
 }
 
 
