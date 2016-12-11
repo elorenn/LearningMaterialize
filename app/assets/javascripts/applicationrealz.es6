@@ -253,10 +253,16 @@ function createMap(position){
           radius: 500,
           query: ['cemetery']
         }, createHavens);
-  
+
+  $('#recenter-vamp').on("click", reCenterMap);      
 
 } //createMap
 
+
+function reCenterMap () {
+  console.log("recentering");
+  map.setCenter(myPosition); 
+}
 
 
 

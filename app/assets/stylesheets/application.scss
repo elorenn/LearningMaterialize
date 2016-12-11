@@ -65,18 +65,18 @@ body {
 
 main {
   flex: 1 0 auto;
-  // background-color: #FFEECE;
+  
 }
 
 nav {
   background-color: #000;
-  // position:relative;
-  // z-index: 100;
+  position: relative;
+  z-index: 9;
+  height: 64px;
 }
 
 .side-nav {
   margin-top: 64px;
-  // width: 64px ;
 }
 
 #sidenav-overlay {
@@ -193,7 +193,7 @@ nav {
   position: absolute;
   top: 950px;
   left: 0px;
-  // z-index: 9;
+  
 }
 
 .sheer {
@@ -240,6 +240,13 @@ p.haven-address {
 
 p#haven-list {
   padding: 0px;
+}
+
+#recenter-vamp {
+  height: 74px;
+  padding-top: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .collapsible-header.white-text {
