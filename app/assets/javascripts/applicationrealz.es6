@@ -23,7 +23,6 @@ $(document).ready(function(){
     });
 
 
-
   $('.js-side-collapsible').collapsible({
 
     // onOpen: function(el) { 
@@ -93,26 +92,30 @@ $(document).ready(function(){
 // }
 
 
-function fetchDirections () {
+function fetchDirections (event) {
+  event.preventDefault();
 
-console.log("getting directions");
+  console.log("getting directions");
 
-// console.log($(this).data("lat"));
-// console.log($(this).data("lng"));
-// console.log(myPosition);
+  // console.log($(this).data("lat"));
+  // console.log($(this).data("lng"));
+  // console.log(myPosition);
 
-var thisLat = $(this).data("lat");
-var thisLng = $(this).data("lng");
+  var thisLat = $(this).data("lat");
+  var thisLng = $(this).data("lng");
 
 
-  var tripDescription = {
-    origin: myPosition,
-    destination: `${thisLat},${thisLng}`,
-    travelMode: "DRIVING",
-  };
+    var tripDescription = {
+      origin: myPosition,
+      destination: `${thisLat},${thisLng}`,
+      travelMode: "DRIVING",
+    };
 
-  var directionsService = new google.maps.DirectionsService();
-  directionsService.route(tripDescription, showDirections);
+    var directionsService = new google.maps.DirectionsService();
+    directionsService.route(tripDescription, showDirections);
+
+    var $toastContent = $('<span>I am toast content</span>');
+    Materialize.toast($toastContent, 5000);
 
 } // => fetchDirections
 
@@ -289,13 +292,13 @@ function createBanks(results, status) {
           
           $("#bank-list").append(
 
-              `<p class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
+              `<li id="bank-list-li"><a href="#" class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
                 <strong> ${bloodName} </strong> 
-              </p>
-
-              <p class="blood-address" data-lat="${bloodLat}" data-lng="${bloodLng}">       
+              </a></li>
+              
+              <li id="bank-list-li"><a href="#" class="blood-address grey-text" data-lat="${bloodLat}" data-lng="${bloodLng}">       
                 ${bloodAddress}
-              </p>`
+              </a></li>`
           );  
       } // => for loop
 
@@ -305,7 +308,12 @@ function createBanks(results, status) {
     } // => if 
 }; // => createBanks
 
-function moveCenter () {
+
+
+
+
+function moveCenter (event) {
+  event.preventDefault();
   console.log("moving the center");
   console.log($(this).data("lat"));
   console.log($(this).data("lng"));

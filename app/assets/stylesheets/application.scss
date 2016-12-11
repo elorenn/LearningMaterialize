@@ -212,15 +212,25 @@ p {
   padding: 0px;
 }
 
-p.blood-name.red-text {
-  padding-bottom: 0px;
-  padding-top: 0px;
+
+a.blood-address.grey-text{
+    height: 58px;
+    padding-left: 45px;
+    padding-top: 0px;
+    padding-bottom: 15px;
+    padding-right: 29px;
 }
 
-p.blood-address {
-  padding-top: 0px;
-  padding-bottom: 15px;
-  padding-left: 45px;
+a.blood-name.red-text {
+    height: 58px;
+    padding-left: 29px;
+    padding-right: 29px;
+    padding-top: 0px;
+}
+
+#bank-list-li {
+  padding-top: 15px;
+  height: 58px;
 }
 
 p#bank-list {
@@ -230,12 +240,16 @@ p#bank-list {
 p.haven-name.red-text {
   padding-bottom: 0px;
   padding-top: 0px;
+  cursor: pointer; 
+  cursor: hand;
 }
 
 p.haven-address {
   padding-top: 0px;
   padding-bottom: 15px;
   padding-left: 45px;
+  cursor: pointer; 
+  cursor: hand;  
 }
 
 p#haven-list {
