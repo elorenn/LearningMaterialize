@@ -325,6 +325,26 @@ p#haven-list {
   z-index: 999;
 }
 
+// words on google maps direction panel:
+.adp table {
+  color: white !important;
+}
+
+.adp {
+  color: white !important;
+}
+
+img.adp-marker {
+  content:url("/assets/vampire-icon-2.png");
+  width: 40px;
+  height: 40px;
+}
+
+.adp-placemark {
+  background-color: transparent !important;
+}
+
+
 // =================== Loading Spinner ============================
 
 /* Absolute Center Spinner */
