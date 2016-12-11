@@ -108,7 +108,7 @@ var thisLng = $(this).data("lng");
   var tripDescription = {
     origin: myPosition,
     destination: `${thisLat},${thisLng}`,
-    travelMode: "WALKING"
+    travelMode: "DRIVING",
   };
 
   var directionsService = new google.maps.DirectionsService();
@@ -259,7 +259,8 @@ function createMap(position){
 } //createMap
 
 
-function reCenterMap () {
+function reCenterMap (event) {
+  event.preventDefault();
   console.log("recentering");
   map.setCenter(myPosition); 
 }
