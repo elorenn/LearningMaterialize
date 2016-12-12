@@ -121,7 +121,25 @@ function fetchDirections (event) {
 function showDirections (result, status) {
   if (status == 'OK') {
     console.log("showing the directions");
-    console.log(result);
+    //console.log(result);
+    var departureNum = Date.now(); // (1481502971194) Dates written as numbers, specifies the number of milliseconds since January 1, 1970, 00:00:00.
+    var departureString = new Date(); // A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
+
+    //console.log(departureNum); // (1481502971194) Dates written as numbers, specifies the number of milliseconds since January 1, 1970, 00:00:00.
+    console.log(departureString); // * departure - A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
+
+    var durationString = result.routes[0].legs[0].duration.text
+    var durationNum = result.routes[0].legs[0].duration.value
+
+    console.log(durationString);
+    //console.log(durationNum);
+    
+    var arrivalNum = departureString.setMinutes(departureString.getMinutes() + 9);
+    //console.log(arrivalNum);
+    
+    var arrivalString = new Date(arrivalNum)
+    console.log(arrivalString);
+
 
     directionsDisplay.setDirections(result);
   }
