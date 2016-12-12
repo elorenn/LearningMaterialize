@@ -143,8 +143,20 @@ function showDirections (result, status) {
     var arrivalNum = departureString.setMinutes(departureString.getMinutes() + justTheNumberInteger);
     //console.log(arrivalNum);
     
-    var arrivalString = new Date(arrivalNum)
+    var arrivalString = new Date(arrivalNum);
     console.log(arrivalString);
+
+    var arrivalJustDate = arrivalString.toDateString();
+    console.log(arrivalJustDate);
+
+    var arrivalJustTime = arrivalString.toLocaleTimeString();
+    console.log(arrivalJustTime);
+
+    $("#arrivalTime").append(
+
+        `You will arrive at ${arrivalJustTime} on ${arrivalJustDate}.`
+
+      );
 
 
     directionsDisplay.setDirections(result);
