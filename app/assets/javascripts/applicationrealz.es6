@@ -65,27 +65,7 @@ $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal').modal();
 
-  getSunData();
-
 }); //document-ready 
-
-
-
-function getSunData() {
-  console.log("Getting sun data");
-
-  //var sun = SunCalc.getTimes(departureString, myLat, myLng);
-  //console.log(sun);
-
-  var times = SunCalc.getTimes(new Date(), 51.5, -0.1);
-  console.log(times);
-
-  var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
-  console.log(sunriseStr);
-
-}
-
-
 
 
 // function dropBloodMarker(argument) {
@@ -169,17 +149,17 @@ function showDirections (result, status) {
     //console.log(arrivalNum);
     
     var arrivalString = new Date(arrivalNum);
-    console.log(arrivalString);
+    // console.log(arrivalString);
 
     var arrivalJustDate = arrivalString.toDateString();
-    console.log(arrivalJustDate);
+    // console.log(arrivalJustDate);
 
     var arrivalJustTime = arrivalString.toLocaleTimeString();
-    console.log(arrivalJustTime);
+    // console.log(arrivalJustTime);
 
     var ampmArray = arrivalJustTime.split(" ");
     var ampm = ampmArray[1];
-    console.log(ampm);
+    // console.log(ampm);
 
     function addZero(i) {
       if (i < 10) {
@@ -192,7 +172,7 @@ function showDirections (result, status) {
     var hours = arrivalString.getHours() % 12 || 12;
       
     var noSeconds = hours + ':' + minutes + " " + ampm;
-    console.log(noSeconds);
+    // console.log(noSeconds);
 
 
     $("#arrivalTime").text(" ");
@@ -266,15 +246,18 @@ function onLocation(position){
     lng: position.coords.longitude
   };
 
-  console.log(myPosition);
+  // console.log(myPosition);
 
   myLat = myPosition.lat;
   myLng = myPosition.lng;
 
+  
   console.log(myLat);
   console.log(myLng);
 
   createMap(myPosition);
+
+  getSunData();
   
 }
 
@@ -514,5 +497,22 @@ function bloodMarker(position) {
    map: map,
    icon: blood
  });
+
+}
+
+function getSunData() {
+  console.log("Getting sun data");
+
+  //var sun = SunCalc.getTimes(departureString, myLat, myLng);
+  //console.log(sun);
+
+  var times = SunCalc.getTimes(new Date(), myLat, myLng);
+  console.log(times);
+
+  var sunriseTime = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+  console.log(sunriseTime);
+
+  var sunsetTime = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+  console.log(sunsetTime);
 
 }
