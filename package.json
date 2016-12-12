@@ -1,0 +1,27 @@
+{
+  "name": "vampmap",
+  "version": "1.0.0",
+  "description": "a map app for vampires",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "fullpage.js": "^2.8.9",
+    "suncalc": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elorenn/LearningMaterialize.git"
+  },
+  "author": "Lorena Sarasua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elorenn/LearningMaterialize/issues"
+  },
+  "homepage": "https://github.com/elorenn/LearningMaterialize#readme"
+}

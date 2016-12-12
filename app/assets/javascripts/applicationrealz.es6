@@ -1,5 +1,7 @@
+'use strict';
 
 console.log("APP ONLINE");
+
 
 var map;
 var infowindow;
@@ -62,7 +64,17 @@ $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal').modal();
 
+  getSunData();
+
 }); //document-ready 
+
+
+
+function getSunData() {
+  var times = SunCalc.getTimes(new Date(), 51.5, -0.1);
+  console.log(times);
+}
+
 
 
 
