@@ -133,8 +133,14 @@ function showDirections (result, status) {
 
     console.log(durationString);
     //console.log(durationNum);
-    
-    var arrivalNum = departureString.setMinutes(departureString.getMinutes() + 9);
+
+    var durationStringArray = durationString.split(" ");
+    var justTheNumber = durationStringArray[0]
+    console.log(justTheNumber);
+    var justTheNumberInteger = parseInt(justTheNumber);
+    console.log(justTheNumberInteger); 
+
+    var arrivalNum = departureString.setMinutes(departureString.getMinutes() + justTheNumberInteger);
     //console.log(arrivalNum);
     
     var arrivalString = new Date(arrivalNum)
