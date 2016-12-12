@@ -533,9 +533,11 @@ function getSunData() {
 
 
 function setTimer () {
-  $('#sun-warning').countdown(sunriseDate + " " + sunriseTime, function(event) {
-    $(this).html(event.strftime('Sunrise in: %H:%M:%S'));
+  $('#sun-text').countdown(sunriseDate + " " + sunriseTime, function(event) {
+    $(this).html(event.strftime('%H:%M:%S'));
   });
+
+  $('.sun').attr("src", "/assets/2-sunset.png");
 }
 
 
