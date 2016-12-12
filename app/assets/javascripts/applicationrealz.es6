@@ -11,7 +11,8 @@ var myLng;
 var departureString;
 var sunriseDate;
 var sunriseTime;
-
+var sunsetDate;
+var sunsetTime;
 
 
 $(document).ready(function(){
@@ -524,19 +525,33 @@ function getSunData() {
 
 
   var sunset = times.sunset
-  //console.log(sunset);
+  console.log(sunset);
+
+  sunsetDate = sunset.toLocaleDateString();
+  console.log(sunsetDate);
+
+  var sunsetTimeArray = (sunset.toTimeString()).split(" ");
+  sunsetTime = sunsetTimeArray[0];
+  console.log(sunsetTime);
+
+
 
 
   setSunRiseTimer();
 
 }
 
-// sunriseDate + " " + sunriseTime
+
+
+// '12/12/2016 05:57:30' sunriseDate + " " + sunriseTime
 
 function setSunRiseTimer () {
-  $('#sun-text').countdown('12/12/2016 05:36:50', function(event) {
+  $('#sun-text').countdown('12/12/2016 06:01:00', function(event) {
     $(this).html(event.strftime('%H:%M:%S'));
   });
+
+  $('#sun-text').removeAttr("data-tooltip");
+  $('#sun-text').attr("data-tooltip", "Sun will rise in...");
 
   $('.sun').attr("src", "/assets/2-sunrise.png");
 
@@ -546,8 +561,18 @@ function setSunRiseTimer () {
 
 function setSunSetTimer () {
   console.log("sunset countdown is finished");
-
   Materialize.toast('The sun is rising!')
+
+  $('#sun-text').countdown('12/12/2016 06:02:50', function(event) {
+    $(this).html(event.strftime('%H:%M:%S'));
+  });
+
+  $('#sun-text').removeAttr("data-tooltip");
+  $('#sun-text').attr("data-tooltip", "Sun will set in...");
+
+  $('.sun').attr("src", "/assets/2-sunset.png");
+
+  $('#sun-text').on('finish.countdown', setSunRiseTimer);
 
 }
 
