@@ -9,6 +9,8 @@ var thisName;
 var myLat;
 var myLng;
 var departureString;
+var sunriseDate;
+var sunriseTime;
 
 
 
@@ -509,10 +511,33 @@ function getSunData() {
   var times = SunCalc.getTimes(new Date(), myLat, myLng);
   console.log(times);
 
-  var sunriseTime = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+  var sunrise = times.sunrise
+  console.log(sunrise);
+
+  sunriseDate = sunrise.toLocaleDateString();
+  console.log(sunriseDate);
+
+  var sunriseTimeArray = (sunrise.toTimeString()).split(" ");
+  sunriseTime = sunriseTimeArray[0];
   console.log(sunriseTime);
 
-  var sunsetTime = times.sunset.getHours() + ':' + times.sunset.getMinutes();
-  console.log(sunsetTime);
+
+
+  var sunset = times.sunset
+  //console.log(sunset);
+
+
+  setTimer();
 
 }
+
+
+function setTimer () {
+  $('#sun-warning').countdown(sunriseDate + " " + sunriseTime, function(event) {
+    $(this).html(event.strftime('Sunrise in: %H:%M:%S'));
+  });
+}
+
+
+
+
