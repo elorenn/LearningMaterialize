@@ -1,5 +1,3 @@
-'use strict';
-
 console.log("APP ONLINE");
 
 
@@ -8,6 +6,9 @@ var infowindow;
 var myPosition;
 var directionsDisplay;
 var thisName;
+var myLat;
+var myLng;
+var departureString;
 
 
 
@@ -71,8 +72,17 @@ $(document).ready(function(){
 
 
 function getSunData() {
+  console.log("Getting sun data");
+
+  //var sun = SunCalc.getTimes(departureString, myLat, myLng);
+  //console.log(sun);
+
   var times = SunCalc.getTimes(new Date(), 51.5, -0.1);
   console.log(times);
+
+  var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+  console.log(sunriseStr);
+
 }
 
 
@@ -138,7 +148,7 @@ function showDirections (result, status) {
     console.log("showing the directions");
     //console.log(result);
     var departureNum = Date.now(); // (1481502971194) Dates written as numbers, specifies the number of milliseconds since January 1, 1970, 00:00:00.
-    var departureString = new Date(); // A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
+    departureString = new Date(); // A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
 
     //console.log(departureNum); // (1481502971194) Dates written as numbers, specifies the number of milliseconds since January 1, 1970, 00:00:00.
     // console.log(departureString); // * departure - A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
@@ -159,18 +169,36 @@ function showDirections (result, status) {
     //console.log(arrivalNum);
     
     var arrivalString = new Date(arrivalNum);
-    // console.log(arrivalString);
+    console.log(arrivalString);
 
     var arrivalJustDate = arrivalString.toDateString();
-    // console.log(arrivalJustDate);
+    console.log(arrivalJustDate);
 
     var arrivalJustTime = arrivalString.toLocaleTimeString();
-    // console.log(arrivalJustTime);
+    console.log(arrivalJustTime);
+
+    var ampmArray = arrivalJustTime.split(" ");
+    var ampm = ampmArray[1];
+    console.log(ampm);
+
+    function addZero(i) {
+      if (i < 10) {
+          i = "0" + i;
+      }
+      return i;
+    };
+
+    var minutes = addZero(arrivalString.getMinutes());
+    var hours = arrivalString.getHours() % 12 || 12;
+      
+    var noSeconds = hours + ':' + minutes + " " + ampm;
+    console.log(noSeconds);
+
 
     $("#arrivalTime").text(" ");
     $("#arrivalTime").append(
 
-        `You will arrive at <span class="red-text" style="font-weight:bold"> ${thisName} </span>, at ${arrivalJustTime} on ${arrivalJustDate}.`
+        `You will arrive at <span class="red-text" style="font-weight:bold"> ${thisName} </span>, at <strong> ${noSeconds} </strong> on ${arrivalJustDate}.`
 
       );
 
@@ -239,6 +267,12 @@ function onLocation(position){
   };
 
   console.log(myPosition);
+
+  myLat = myPosition.lat;
+  myLng = myPosition.lng;
+
+  console.log(myLat);
+  console.log(myLng);
 
   createMap(myPosition);
   
@@ -482,6 +516,3 @@ function bloodMarker(position) {
  });
 
 }
-
-
-
