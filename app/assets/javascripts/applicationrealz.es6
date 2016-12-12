@@ -5,6 +5,7 @@ var map;
 var infowindow;
 var myPosition;
 var directionsDisplay;
+var thisName;
 
 
 
@@ -105,6 +106,9 @@ function fetchDirections (event) {
   var thisLat = $(this).data("lat");
   var thisLng = $(this).data("lng");
 
+  thisName = $(this).data("name");
+  console.log(thisName);
+
 
     var tripDescription = {
       origin: myPosition,
@@ -152,9 +156,10 @@ function showDirections (result, status) {
     var arrivalJustTime = arrivalString.toLocaleTimeString();
     console.log(arrivalJustTime);
 
+    $("#arrivalTime").text(" ");
     $("#arrivalTime").append(
 
-        `You will arrive at ${arrivalJustTime} on ${arrivalJustDate}.`
+        `You will arrive at ${thisName}, at ${arrivalJustTime} on ${arrivalJustDate}.`
 
       );
 
@@ -330,7 +335,7 @@ function createBanks(results, status) {
               `<p class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
                 <strong> ${bloodName} </strong> 
               </p>
-              <p class="blood-address" data-lat="${bloodLat}" data-lng="${bloodLng}">       
+              <p class="blood-address" data-lat="${bloodLat}" data-lng="${bloodLng}" data-name="${bloodName}">       
                 ${bloodAddress}
               </p>`
           );  
@@ -386,7 +391,7 @@ function createHavens(results, status) {
           `<p class="haven-name red-text" data-lat="${havenLat}" data-lng="${havenLng}"> 
             <strong> ${havenName} </strong> 
           </p>
-          <p class="haven-address" data-lat="${havenLat}" data-lng="${havenLng}">       
+          <p class="haven-address" data-lat="${havenLat}" data-lng="${havenLng}" data-name="${havenName}">       
             ${havenAddress}
           </p>`
         );  
