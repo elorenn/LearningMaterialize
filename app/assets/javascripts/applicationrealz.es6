@@ -527,19 +527,27 @@ function getSunData() {
   //console.log(sunset);
 
 
-  setTimer();
+  setSunRiseTimer();
 
 }
 
+// sunriseDate + " " + sunriseTime
 
-function setTimer () {
-  $('#sun-text').countdown(sunriseDate + " " + sunriseTime, function(event) {
+function setSunRiseTimer () {
+  $('#sun-text').countdown('12/12/2016 05:11:30', function(event) {
     $(this).html(event.strftime('%H:%M:%S'));
   });
 
   $('.sun').attr("src", "/assets/2-sunrise.png");
+
+  $('#sun-text').on('finish.countdown', setSunSetTimer);
 }
 
 
+function setSunSetTimer () {
+  console.log("sunset countdown is finished");
 
+  Materialize.toast('The sun is rising!', 4000, 'red')
+
+}
 
