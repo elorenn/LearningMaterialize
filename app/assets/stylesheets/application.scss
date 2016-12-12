@@ -353,12 +353,13 @@ p#haven-list {
   padding-top: 5px;
 }
 
-
 #toast-container {
-  top: auto !important;
-  right: auto !important;
-  bottom: 10%;
-  left:7%;  
+  background-color: transparent !important;
+  top: 15% !important; 
+}
+
+.toast {
+  background-color: rgba(156,16,16,.75) !important;
 }
 
 

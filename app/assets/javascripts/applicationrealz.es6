@@ -534,7 +534,7 @@ function getSunData() {
 // sunriseDate + " " + sunriseTime
 
 function setSunRiseTimer () {
-  $('#sun-text').countdown('12/12/2016 05:11:30', function(event) {
+  $('#sun-text').countdown('12/12/2016 05:36:50', function(event) {
     $(this).html(event.strftime('%H:%M:%S'));
   });
 
@@ -547,7 +547,7 @@ function setSunRiseTimer () {
 function setSunSetTimer () {
   console.log("sunset countdown is finished");
 
-  Materialize.toast('The sun is rising!', 4000, 'red')
+  Materialize.toast('The sun is rising!')
 
 }
 
