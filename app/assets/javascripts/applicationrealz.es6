@@ -546,7 +546,7 @@ function getSunData() {
 // '12/12/2016 05:57:30' sunriseDate + " " + sunriseTime
 
 function setSunRiseTimer () {
-  $('#sun-text').countdown('12/12/2016 16:15:00', function(event) {
+  $('#sun-text').countdown('12/12/2016 15:15:00', function(event) {
     $(this).html(event.strftime('%H:%M:%S'));
   });
 
