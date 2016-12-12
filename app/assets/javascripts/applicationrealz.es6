@@ -159,7 +159,7 @@ function showDirections (result, status) {
     $("#arrivalTime").text(" ");
     $("#arrivalTime").append(
 
-        `You will arrive at ${thisName}, at ${arrivalJustTime} on ${arrivalJustDate}.`
+        `You will arrive at <span class="red-text" style="font-weight:bold"> ${thisName} </span>, at ${arrivalJustTime} on ${arrivalJustDate}.`
 
       );
 
