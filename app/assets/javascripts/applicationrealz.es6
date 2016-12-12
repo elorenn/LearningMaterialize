@@ -534,45 +534,71 @@ function getSunData() {
   sunsetTime = sunsetTimeArray[0];
   console.log(sunsetTime);
 
+  var timeNow = new Date().toTimeString().split(" ")[0];
 
+      if(sunriseTime > timeNow ){
+        setSunRiseTimer();
+      }else{
+        setSunSetTimer();
+      }
 
-
-  setSunRiseTimer();
 
 }
+
+
 
 
 
 // '12/12/2016 05:57:30' sunriseDate + " " + sunriseTime
 
 function setSunRiseTimer () {
-  $('#sun-text').countdown('12/12/2016 15:15:00', function(event) {
+  
+  $('#sun-text').countdown(sunriseDate + " " + sunriseTime, function(event) {
     $(this).html(event.strftime('%H:%M:%S'));
   });
 
-  $('#sun-text').removeAttr("data-tooltip");
+  // $('#sun-text').removeAttr("data-tooltip");
   $('#sun-text').attr("data-tooltip", "Sun will rise in...");
+  $('.tooltipped').tooltip({delay: 50});
 
   $('.sun').attr("src", "/assets/2-sunrise.png");
 
-  $('#sun-text').on('finish.countdown', setSunSetTimer);
+  $('#sun-text').on('finish.countdown', sendRisingAlert);
+}
+
+function sendRisingAlert() {
+  console.log("sunrise countdown is finished");
+  Materialize.toast('The sun is rising!', 4000);
+
+  setSunSetTimer();
 }
 
 
+
 function setSunSetTimer () {
-  console.log("sunset countdown is finished");
-  Materialize.toast('The sun is rising!', 4000)
+
 
   $('#sun-text').countdown(sunsetDate + " " + sunsetTime, function(event) {
     $(this).html(event.strftime('%H:%M:%S'));
   });
 
-  $('#sun-text').removeAttr("data-tooltip");
+  // $('#sun-text').removeAttr("data-tooltip");
   $('#sun-text').attr("data-tooltip", "Sun will set in...");
+  $('.tooltipped').tooltip({delay: 50});
 
   $('.sun').attr("src", "/assets/2-sunset.png");
 
-  $('#sun-text').on('finish.countdown', setSunRiseTimer);
+  $('#sun-text').on('finish.countdown', sendSettingAlert);
 
 }
+
+function sendSettingAlert() {
+  console.log("sunset countdown is finished");
+  Materialize.toast('The sun is setting!', 4000);
+
+  setSunRiseTimer();
+}
+
+
+
 
