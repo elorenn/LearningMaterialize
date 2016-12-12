@@ -62,7 +62,6 @@ $(document).ready(function(){
   // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
   $('.modal').modal();
 
-
 }); //document-ready 
 
 
@@ -130,31 +129,31 @@ function showDirections (result, status) {
     var departureString = new Date(); // A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
 
     //console.log(departureNum); // (1481502971194) Dates written as numbers, specifies the number of milliseconds since January 1, 1970, 00:00:00.
-    console.log(departureString); // * departure - A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
+    // console.log(departureString); // * departure - A JavaScript date can be written as a string: Sun Dec 11 2016 19:36:11 GMT-0500 (EST)
 
     var durationString = result.routes[0].legs[0].duration.text
     var durationNum = result.routes[0].legs[0].duration.value
 
-    console.log(durationString);
+    // console.log(durationString);
     //console.log(durationNum);
 
     var durationStringArray = durationString.split(" ");
     var justTheNumber = durationStringArray[0]
-    console.log(justTheNumber);
+    // console.log(justTheNumber);
     var justTheNumberInteger = parseInt(justTheNumber);
-    console.log(justTheNumberInteger); 
+    // console.log(justTheNumberInteger); 
 
     var arrivalNum = departureString.setMinutes(departureString.getMinutes() + justTheNumberInteger);
     //console.log(arrivalNum);
     
     var arrivalString = new Date(arrivalNum);
-    console.log(arrivalString);
+    // console.log(arrivalString);
 
     var arrivalJustDate = arrivalString.toDateString();
-    console.log(arrivalJustDate);
+    // console.log(arrivalJustDate);
 
     var arrivalJustTime = arrivalString.toLocaleTimeString();
-    console.log(arrivalJustTime);
+    // console.log(arrivalJustTime);
 
     $("#arrivalTime").text(" ");
     $("#arrivalTime").append(
@@ -329,13 +328,17 @@ function createBanks(results, status) {
           // console.log(address);
           // console.log(isOpen);
 
-          
+          $('.tooltipped').tooltip({
+            delay: 50,
+            position: 'right',
+          });
+
           $("#bank-list").append(
 
-              `<p class="blood-name red-text" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
+              `<p class="blood-name red-text tooltipped" data-tooltip="Find on map" data-lat="${bloodLat}" data-lng="${bloodLng}"> 
                 <strong> ${bloodName} </strong> 
               </p>
-              <p class="blood-address" data-lat="${bloodLat}" data-lng="${bloodLng}" data-name="${bloodName}">       
+              <p class="blood-address tooltipped" data-tooltip="Get directions" data-lat="${bloodLat}" data-lng="${bloodLng}" data-name="${bloodName}">       
                 ${bloodAddress}
               </p>`
           );  
@@ -388,10 +391,10 @@ function createHavens(results, status) {
 
       $("#haven-list").append(
 
-          `<p class="haven-name red-text" data-lat="${havenLat}" data-lng="${havenLng}"> 
+          `<p class="haven-name red-text tooltipped" data-tooltip="Find on map" data-lat="${havenLat}" data-lng="${havenLng}"> 
             <strong> ${havenName} </strong> 
           </p>
-          <p class="haven-address" data-lat="${havenLat}" data-lng="${havenLng}" data-name="${havenName}">       
+          <p class="haven-address tooltipped" data-lat="${havenLat}" data-tooltip="Get directions" data-lng="${havenLng}" data-name="${havenName}">       
             ${havenAddress}
           </p>`
         );  
