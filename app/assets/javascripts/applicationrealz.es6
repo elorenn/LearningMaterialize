@@ -537,7 +537,7 @@ function setTimer () {
     $(this).html(event.strftime('%H:%M:%S'));
   });
 
-  $('.sun').attr("src", "/assets/2-sunset.png");
+  $('.sun').attr("src", "/assets/2-sunrise.png");
 }
 
 
