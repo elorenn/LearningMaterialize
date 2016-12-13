@@ -126,7 +126,9 @@ nav {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 0px;
+  
 }
+
 
 #human:checked .hello-human {
     display: block;
@@ -148,6 +150,7 @@ nav {
 
 .vampire-form {
   display: none;
+  padding-bottom: 150px;
 }
 #human:checked .vampire-form {
     display: block;
@@ -156,6 +159,7 @@ nav {
 
 .human-form {
   display: block;
+  padding-bottom: 150px;
 }
 
 #vampire:checked .human-form {
@@ -359,12 +363,23 @@ p#haven-list {
   padding-right: 15px;
   padding-left: 5px;
   cursor: default;
-
+  float: left;
 }
 
 .sun {
   padding-top: 5px;
+  float: left;
 }
+
+@media screen and (max-width: 480px) {
+    .sun {
+        float: right;
+    }
+    #sun-text {
+        float: right;
+    }
+}
+
 
 #toast-container {
   background-color: transparent !important;
@@ -381,6 +396,19 @@ p#haven-list {
 
 .hide {
   opacity: 0;
+}
+
+ul.sun-avoid {
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+a#human {
+  padding-left: 20px;
+}
+
+li.sun-list {
+  line-height: 2.5em;
 }
 
 // ================  Google Maps Direction Panel ====================

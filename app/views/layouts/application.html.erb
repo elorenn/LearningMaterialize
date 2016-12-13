@@ -22,8 +22,8 @@
 
           <div class="brand-logo center white-text">VampMap</div>
 
-          <img class="left sun">
-          <div class="left white-text tooltipped" data-position="right" data-delay="50" id="sun-text"></div>
+          <img class="sun">
+          <div class="white-text tooltipped" data-position="right" data-delay="50" id="sun-text"></div>
             
         </div> <!-- nav-wrapper -->
       </nav>
@@ -33,16 +33,38 @@
             
             <div class="nav-hello show">
               <li class="hello-vampire">
-                <p class="white-text">Hello <span class="adjective"></span> Vampire! Your undead skin type puts you at great risk of disintegrating! You must avoid the sun at all costs.</p>
+                <p class="white-text">Hello <span class="adjective"></span> Vampire! Your undead skin type puts you at great risk of disintegrating! 
+                  <ul class="sun-avoid grey-text">
+                    <li class="sun-list">You must avoid the sun at all costs.</li>
+                    <li class="sun-list">The night is your friend!</li>
+                    <li class="sun-list">On cloudy days, you may venture outside if you stay in the shade.</li>
+                    <li class="sun-list">Avoid garlic.</li>
+                    <li class="sun-list">Always have a safe blood source nearby (attacking random bloodbags puts you at risk of contamination.)</li>
+                  </ul>
+                </p>
               </li>
               <form class="human-form">
-                  <a href="#" class="white-text" id="human">Wait a minute! I'm not a vampire...</a>
+                  <a href="#" class="red-text" id="human">Wait a minute! I'm not a vampire...</a>
               </form>
               <li class="hello-human">
-                <p class="white-text">Oh, you're not a vampire? How awkward...well then. Hello Human! You might not disintegrate in the sun like our vampire friends, but you're still at risk of sunburn and skin cancer. Make sure to wear sunscreen and avoid the sun during the peak sun hours between 11am and 4pm. When in doubt, head for the shade!</p>
+                <p class="white-text">Oh, you're not a vampire? How awkward...well then. Hello Human! You might not disintegrate in the sun like our vampire friends, but you're still at risk of sunburn and skin cancer.
+                  <ul class="sun-avoid grey-text">
+                    <li class="sun-list">Make sure to wear sunscreen, and reapply every two hours or after swimming or perspiring.</li>
+                    <li class="sun-list">Pick sunsreens with full-spectrum protection, and an SPF of 15 or higher.</li>
+                    <li class="sun-list">Avoid the sun during the peak sun hours between 11am and 4pm, when UV rays are the strongest.</li>
+                    <li class="sun-list">Even on cloudy days, UVA rays penetrate the atsmosphere. Wear sunscreen!</li>
+                    <li class="sun-list">Even indoors, UVA rays penetrate the glass windows. Wear sunscreen!</li>
+                    <li class="sun-list">When in doubt, head for the shade!</li>
+                    <li class="sun-list">Don't use indoor tanning beds.</li>
+                    <li class="sun-list">There is no such thing as a healthy tan.</li>
+                    <li class="sun-list">A tan is a sign of DNA damage.</li>
+                    <li class="sun-list">A tan <em>does not</em> offer protection against sunburn. </li>
+                    <li class="sun-list">Get your skin checked by a dermatologist yearly.</li>
+                  </ul>
+                </p>
               </li>
               <form class="vampire-form">
-                  <a href="#" class="white-text" id="vampire">Actually, I am a vampire...</a>
+                  <a href="#" class="red-text" id="vampire">Actually, I am a vampire...</a>
               </form>
 
               <!-- <li class="divider"></li> -->
