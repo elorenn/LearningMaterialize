@@ -28,7 +28,7 @@ $(document).ready(function(){
   } 
 
   $('.scrollspy').scrollSpy();
-  // $('.parallax').parallax();
+ 
   $(".button-collapse").sideNav({     
       //menuWidth: 200, // Default is 240
       // edge: 'right',
@@ -67,6 +67,8 @@ $(document).ready(function(){
 
 
   $(window).on("scroll", changeNavbar);
+
+  $(window).on("scroll", changeSideNav);
 
   // $(window).one("scroll", dropMarker)
   
@@ -208,17 +210,40 @@ function handleError (error) {
 }
 
 
-
-
-
-
-function changeNavbar(){
+function changeNavbar() {
   if($(window).scrollTop() > 60) {
             $("nav").addClass("active");
         } else {
            $("nav").removeClass("active");
         }
 }
+
+
+function changeSideNav() {
+  if ($(window).scrollTop()  > $(window).height() + 10) {
+
+        console.log("woooo");
+
+        $('.nav-hello').removeClass("show");
+        $('.nav-hello').addClass("hide");
+
+        $('.spacing').removeClass("hide");
+        $('.spacing').addClass("show");
+
+        } else {
+           
+        $('.nav-hello').removeClass("hide");
+        $('.nav-hello').addClass("show");
+        
+        $('.spacing').removeClass("show");
+        $('.spacing').addClass("hide");
+
+
+        }
+
+}
+
+
 
 function intoHuman (event) {
   event.preventDefault();
