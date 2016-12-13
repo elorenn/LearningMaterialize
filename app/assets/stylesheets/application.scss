@@ -107,6 +107,7 @@ nav {
 #bank-text-human {
   display: none;
 }
+
 #human:checked #bank-text-human {
     display: block;
 }
@@ -114,24 +115,32 @@ nav {
 #bank-text-vampire {
   display: block;
 }
+
 #vampire:checked #bank-text-vampire {
     display: none;
 }
 
 
 .hello-human {
-    display: none;
-    padding: 20px;
+  display: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
 }
+
 #human:checked .hello-human {
     display: block;
 }
 
 
 .hello-vampire {
-    display: block;
-    padding: 20px;
+  display: block;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
 }
+
+
 #vampire:checked .hello-vampire {
     display: none;
 }
@@ -148,10 +157,14 @@ nav {
 .human-form {
   display: block;
 }
+
 #vampire:checked .human-form {
     display: none;
 }
 
+.link {
+  margin: 14.5px;
+}
 
 
 // ===============================================
@@ -361,6 +374,8 @@ p#haven-list {
 .toast {
   background-color: rgba(156,16,16,.75) !important;
 }
+
+
 
 
 // ================  Google Maps Direction Panel ====================

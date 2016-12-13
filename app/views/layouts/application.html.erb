@@ -30,6 +30,25 @@
     </div> <!-- navbar-fixed main-nav -->
 
           <ul id="slide-out" class="side-nav sheer">
+            
+            <div class="nav-hello">
+              <li class="hello-vampire">
+                <p class="white-text">Hello <span class="adjective"></span> Vampire! Your undead skin type puts you at great risk of disintegrating! You must avoid the sun at all costs.</p>
+              </li>
+              <form class="human-form">
+                  <a href="#" class="white-text" id="human">Wait a minute! I'm not a vampire...</a>
+              </form>
+              <li class="hello-human">
+                <p class="white-text">Oh, you're not a vampire? How awkward...well then. Hello Human! You might not disintegrate in the sun like our vampire friends, but you're still at risk of sunburn and skin cancer. Make sure to wear sunscreen and avoid the sun during the peak sun hours between 11am and 4pm. When in doubt, head for the shade!</p>
+              </li>
+              <form class="vampire-form">
+                  <a href="#" class="white-text" id="vampire">Actually, I am a vampire...</a>
+              </form>
+            </div> <!-- nav-hello -->
+
+          <li class="divider"></li>
+
+
           <div class="spacing">
             <li><a href="#" class="white-text" id="recenter-vamp"><img src="/assets/vampire-icon-2.png" alt="" class="circle">Current Location</a></li>
 
@@ -62,9 +81,9 @@
 
             <div id="directionsPanel"></div>
             
-            <li class="divider"></li>
+            <!-- <li class="divider"></li> -->
 
-            <div class="nav-hello">
+            <!-- <div class="nav-hello">
               <li class="hello-vampire">
                 <p class="white-text">Hello <span class="adjective"></span> Vampire! Your undead skin type puts you at great risk of disintegrating! You must avoid the sun at all costs.</p>
               </li>
@@ -77,35 +96,7 @@
               <form class="vampire-form">
                   <a href="#" class="white-text" id="vampire">Actually, I am a vampire...</a>
               </form>
-
-
-              <!-- ! Dropdown Trigger --> 
-              <a class='dropdown-button btn-flat' href='#top-section' data-activates='dropdown1'> Select Skin Type</a>
-
-              <!-- Dropdown Structure -->
-              <ul id='dropdown1' class='dropdown-content white'>
-                <li><a class="btn-flat disabled" href="#!">skin type 0</a></li>
-                <li><a class="btn-flat" href="#!">skin type I</a></li>
-                <li><a class="btn-flat" href="#!">skin type II</a></li>
-                <li><a class="btn-flat" href="#!">skin type III</a></li>
-                <li><a class="btn-flat" href="#!">skin type IV</a></li>
-                <li><a class="btn-flat" href="#!">skin type V</a></li>
-                <li><a class="btn-flat" href="#!">skin type VI</a></li>
-                <li class="divider"></li>
-                <!-- Modal Trigger -->
-                <li><a href="#modal1">About skin types</a></li>
-              </ul> 
-
-
-
-
-
-            </div> <!-- nav-hello -->
-
-
-      <!--       <li><a href="#!" class="waves-effect waves-red white-text"><i class="material-icons white-text">add</i>Add Haven</a></li>
-
-            <li class="divider"></li> -->
+            </div> --> <!-- nav-hello -->
 
             </div> <!-- spacing -->
         </ul> <!-- side-nav -->    
@@ -113,26 +104,10 @@
     <%= yield %>
 
     <footer class="page-footer">
-          <div class="container">
-            <!-- <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-            </div> -->
-          </div>
-
-          <div class="footer-copyright">
+            <div class="footer-copyright">
             <div class="container">
+            <!-- Modal Trigger -->
+            <p class="right"><a class="grey-text" href="#modal1">About skin types</a></p>
             <p class="center"> Made with <span class="red-text"> &hearts; </span> and &#9749; at Ironhack. </p>
             </div>
           </div>      
