@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+
+group :development do
+  gem 'rails_real_favicon'
+end
+
+
+
 gem "sprockets-es6", require: "sprockets/es6"
 gem 'materialize-sass'
 

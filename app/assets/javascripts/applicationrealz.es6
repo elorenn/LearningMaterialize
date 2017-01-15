@@ -597,6 +597,9 @@ function defineThings(times){
 }
 
 
+//  Materialize.toast('The sun is setting!', 4000);
+
+
 
 // '12/12/2016 05:57:30' sunriseDate + " " + sunriseTime
 
@@ -635,3 +638,4 @@ function setSunSetTimer () {
 
 
 }
+
