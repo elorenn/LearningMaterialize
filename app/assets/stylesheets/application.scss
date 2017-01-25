@@ -13,6 +13,20 @@ $secondary-color: color("yellow", "base") !default;
  * Made By MaterializeCSS.com
  */
 
+@font-face {
+  font-family: "yataghan";
+  src: url(/assets/yataghan.ttf) format("truetype");
+}
+
+body {
+  font-family: "yataghan";
+}
+
+
+p {
+  font-family: "yataghan";
+}
+
 
 nav ul a,
 nav .brand-logo {
